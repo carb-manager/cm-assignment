@@ -1,0 +1,43 @@
+name: Test & Deploy
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Test - Node ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build
+    - run: npm test
+      env:
+        CI: true
+
+  deploy:
+    needs: test
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Deploy
+      run: |
+        npm install
+        npm run build
+    - name: Deploy
+      run: |
+        sudo npm install -g firebase-tools
+        firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}

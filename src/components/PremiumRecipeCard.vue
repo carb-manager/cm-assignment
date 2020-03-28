@@ -13,7 +13,7 @@
 
     <div class="prc__info">
       <div class="prc__header">
-        <!-- Low Carb Thai Chicken Curry With Coconut Cauliflower Rice -->
+        Low Carb Thai Chicken Curry With Coconut Cauliflower Rice
       </div>
 
       <div class="prc__ratings">
