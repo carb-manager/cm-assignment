@@ -2,9 +2,9 @@ name: Test & Deploy
 
 on:
   push:
-    branches: [ master ]
+    branches: [ carb-manager:master ]
   pull_request:
-    branches: [ master ]
+    branches: [ carb-manager:master ]
 
 jobs:
 
