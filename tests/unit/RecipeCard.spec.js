@@ -10,6 +10,7 @@ describe('RecipeCard.vue', () => {
     const { container } = render(RecipeCard, {
       props: {
         recipe: mockRecipe,
+        energyUnits: 'calories',
       },
     });
     expect(container.firstChild).toHaveTextContent(mockRecipe.title);
