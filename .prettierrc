@@ -1,0 +1,11 @@
+{
+  "vetur.format.defaultFormatterOptions": {
+    "prettier": {
+      "semi": false,
+      "singleQuote": true,
+      "endOfLine": "lf"
+    }
+  },
+  "singleQuote": true,
+  "endOfLine": "lf"
+}

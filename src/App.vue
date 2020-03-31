@@ -2,13 +2,19 @@
   <div id="app">
     <div class="cm-container">
       <div class="cm-logo-wrapper">
-        <img alt="Carb Manager" src="./assets/cm-logo.svg" class="cm-logo" />
+        <div class="cm-logo">
+          <cm-logo />
+        </div>
       </div>
       <h2>Carb Manager Dev Assignment</h2>
       <p>See the README file for assignment requirements.</p>
 
       <div class="premium-recipe-wrapper">
-        <RecipeCard :recipe="mockRecipe" energy-units="calories" />
+        <RecipeCard
+          :recipe="mockRecipe"
+          energy-units="calories"
+          :is-premium="true"
+        />
       </div>
     </div>
   </div>
@@ -16,18 +22,20 @@
 
 <script>
 import RecipeCard from './components/RecipeCard.vue';
+import cmLogo from '@/assets/cm-logo.svg';
 import { mockRecipe } from '../tests/mocks';
 
 export default {
   name: 'App',
   components: {
     RecipeCard,
+    cmLogo
   },
   data() {
     return {
-      mockRecipe,
+      mockRecipe
     };
-  },
+  }
 };
 </script>
 
@@ -60,7 +68,6 @@ export default {
 /** Remove these styles when done */
 .premium-recipe-wrapper {
   margin-top: 100px;
-  border: 2px dashed red;
   padding: 16px;
 }
 </style>
