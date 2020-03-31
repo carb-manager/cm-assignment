@@ -8,26 +8,32 @@
       <p>See the README file for assignment requirements.</p>
 
       <div class="premium-recipe-wrapper">
-        <PremiumRecipeCard />
+        <RecipeCard :recipe="mockRecipe" energy-units="calories" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import PremiumRecipeCard from "./components/PremiumRecipeCard.vue";
+import RecipeCard from './components/RecipeCard.vue';
+import { mockRecipe } from '../tests/mocks';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
-    PremiumRecipeCard
-  }
+    RecipeCard,
+  },
+  data() {
+    return {
+      mockRecipe,
+    };
+  },
 };
 </script>
 
 <style>
 #app {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
