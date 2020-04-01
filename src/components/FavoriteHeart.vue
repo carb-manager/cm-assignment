@@ -1,7 +1,13 @@
 <template>
   <div class="cm-favorite-heart">
-    <heart-filled-icon v-if="isActive" />
-    <heart-empty-icon v-else />
+    <heart-filled-icon
+      v-if="isActive"
+      :data-testid="testId ? `${testId}__heart-filled` : null"
+    />
+    <heart-empty-icon
+      v-else
+      :data-testid="testId ? `${testId}__heart-empty` : null"
+    />
   </div>
 </template>
 
@@ -15,7 +21,11 @@ export default {
     heartFilledIcon
   },
   props: {
-    isActive: Boolean
+    isActive: Boolean,
+    testId: {
+      type: String,
+      default: null
+    }
   }
 };
 </script>

@@ -5,21 +5,49 @@ import RecipeCard from '@/components/RecipeCard';
 
 import { mockRecipe } from '../mocks';
 
+import { timeConvert, calorieConvert } from '@/utils';
+
 describe('RecipeCard.vue', () => {
-  test('title renders properly', async () => {
-    const { container } = render(RecipeCard, {
+  test('title renders properly', () => {
+    const { getByTestId } = render(RecipeCard, {
       props: {
         recipe: mockRecipe,
-        energyUnits: 'calories'
+        energyUnits: 'calories',
+        testId: 'testRecipe'
       }
     });
-    expect(container.firstChild).toHaveTextContent(mockRecipe.title);
+    expect(getByTestId('testRecipe__recipe-title')).toHaveTextContent(
+      mockRecipe.title
+    );
   });
 
-  test.todo('title should truncated after 2 lines');
-  test.todo('energy-units should determine which unit to display properly');
-  test.todo('rating count should display properly');
-  test.todo('start count should display properly');
-  test.todo('duration should render properly');
-  test.todo('nutrition information should display properly');
+  test('energy-units should determine which unit to display properly', async () => {
+    const { getByTestId, updateProps } = render(RecipeCard, {
+      props: {
+        recipe: mockRecipe,
+        energyUnits: 'calories',
+        testId: 'testRecipe'
+      }
+    });
+    expect(getByTestId('testRecipe__cals')).toHaveTextContent(
+      calorieConvert(mockRecipe.nutrition.calories, 'calories')
+    );
+    await updateProps({ energyUnits: 'kilojoules' });
+
+    expect(getByTestId('testRecipe__cals')).toHaveTextContent(
+      calorieConvert(mockRecipe.nutrition.calories, 'kilojoules')
+    );
+  });
+  test('duration should render properly', () => {
+    const { getByTestId } = render(RecipeCard, {
+      props: {
+        recipe: mockRecipe,
+        energyUnits: 'calories',
+        testId: 'testRecipe'
+      }
+    });
+    expect(getByTestId('testRecipe__duration')).toHaveTextContent(
+      timeConvert(mockRecipe.duration)
+    );
+  });
 });

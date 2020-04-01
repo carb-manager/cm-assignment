@@ -1,7 +1,7 @@
 <template>
-  <div class="cm-recipe-card">
+  <div class="cm-recipe-card" @click="onClick">
     <div class="cm-recipe-card__image-wrapper">
-      <div class="favorite-heart">
+      <div v-if="hasFavoriteIcon" class="favorite-heart">
         <favorite-heart :is-active="recipe.isFavorite" />
       </div>
       <div class="cm-recipe-card__image-wrapper__hover-overlay"></div>
@@ -12,22 +12,29 @@
         <span>Premium Recipe</span>
       </div>
     </div>
-    <div class="cm-recipe-card__body">
-      <div class="cm-recipe-card__body__title">
+    <div v-if="isPremium" class="cm-recipe-card__body">
+      <div
+        class="cm-recipe-card__body__title"
+        :data-testid="testId ? `${testId}__recipe-title` : null"
+      >
         {{ recipe.title }}
       </div>
       <div class="cm-recipe-card__body__rating">
         <star-rating :rating="recipe.rating" :size="12" />
       </div>
       <div class="cm-recipe-card__body__info-wrapper">
-        <div class="cm-recipe-card__body__info-wrapper__info">
-          <clockIcon />
-          <span>{{ recipeDuration }}</span>
-        </div>
-        <div class="cm-recipe-card__body__info-wrapper__info cals">
-          <calsIcon />
-          <span>{{ recipeCals }}</span>
-        </div>
+        <icon-with-label
+          icon="clock"
+          :label="recipeDuration"
+          :data-testid="testId ? `${testId}__duration` : null"
+        />
+        <icon-with-label
+          icon="cals"
+          :label="recipeCals"
+          class="cals"
+          :data-testid="testId ? `${testId}__cals` : null"
+        />
+        <recipe-nutrition :nutrition="recipe.nutrition" />
       </div>
     </div>
   </div>
@@ -35,14 +42,21 @@
 <script>
 import FavoriteHeart from './FavoriteHeart';
 import StarRating from './StarRating';
+import IconWithLabel from './IconWithLabel';
+import RecipeNutrition from './RecipeNutrition';
+
 import trophyIcon from '@/assets/icons/trophy.svg';
-import clockIcon from '@/assets/icons/clock.svg';
-import calsIcon from '@/assets/icons/cals.svg';
 
 import { timeConvert, calorieConvert } from '@/utils';
 export default {
   name: 'RecipeCard',
-  components: { trophyIcon, clockIcon, calsIcon, FavoriteHeart, StarRating },
+  components: {
+    trophyIcon,
+    FavoriteHeart,
+    StarRating,
+    IconWithLabel,
+    RecipeNutrition
+  },
   props: {
     title: {
       type: String,
@@ -65,6 +79,14 @@ export default {
         }
         return isValid;
       }
+    },
+    hasFavoriteIcon: {
+      type: Boolean,
+      default: true
+    },
+    testId: {
+      type: String,
+      default: null
     }
   },
   computed: {
@@ -74,11 +96,17 @@ export default {
     recipeCals() {
       return calorieConvert(this.recipe.nutrition.calories, this.energyUnits);
     }
+  },
+  methods: {
+    onClick($event) {
+      this.$emit('click', $event);
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
 .cm-recipe-card {
+  position: relative;
   box-shadow: 0px 13px 35px rgba($shadowColor, 0.1);
   border-radius: 12px;
   width: 343px;
@@ -171,6 +199,11 @@ export default {
       font-size: 18px;
       line-height: 20px;
       text-align: left;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+      display: -webkit-box;
+      text-overflow: ellipsis;
     }
 
     &__rating {
@@ -182,20 +215,9 @@ export default {
       display: flex;
       align-items: center;
 
-      &__info {
-        display: flex;
-        align-items: center;
-
-        span {
-          margin-left: 8px;
-          font-size: 12px;
-          line-height: 14px;
-          color: $gray-2;
-        }
-
-        &.cals {
-          margin-left: 16px;
-        }
+      .cals {
+        margin-left: 16px;
+        flex: 1;
       }
     }
   }

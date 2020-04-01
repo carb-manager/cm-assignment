@@ -1,7 +1,7 @@
 export const timeConvert = num => {
   const hours = Math.floor(num / 60);
   const minutes = num % 60;
-  return `${hours > 0 ? `${hours} hr` : ``} ${
+  return `${hours > 0 ? `${hours} hr ` : ''}${
     minutes > 0 ? `${minutes} min` : ''
   }`;
 };

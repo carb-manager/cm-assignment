@@ -8,7 +8,9 @@
       active-color="#FDA01E"
       :show-rating="false"
     />
-    <span v-if="hasLabel">{{ rating.count }} ratings</span>
+    <span v-if="hasLabel" :data-testid="testId ? `${testId}__count` : null"
+      >{{ rating.count }} ratings</span
+    >
   </div>
 </template>
 
@@ -30,6 +32,10 @@ export default {
     size: {
       type: Number,
       default: 20
+    },
+    testId: {
+      type: String,
+      default: null
     }
   }
 };

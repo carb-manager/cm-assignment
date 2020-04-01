@@ -3,7 +3,6 @@ const root = path.resolve(__dirname, '../');
 
 module.exports = {
   stories: ['../stories/**/*.stories.js'],
-  styles: ['./storybook.scss'],
   addons: ['@storybook/addon-actions', '@storybook/addon-knobs'],
   webpackFinal: async config => {
     config.resolve.alias = {

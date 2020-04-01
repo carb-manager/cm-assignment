@@ -4,5 +4,17 @@ import '@testing-library/jest-dom';
 import FavoriteHeart from '@/components/FavoriteHeart';
 
 describe('FavoriteHeart.vue', () => {
-  test.todo('isActive renders properly');
+  test('isActive renders properly', async () => {
+    const { getByTestId, updateProps } = render(FavoriteHeart, {
+      props: {
+        isActive: true,
+        testId: 'testFavorite'
+      }
+    });
+    expect(getByTestId('testFavorite__heart-filled')).toBeVisible();
+
+    await updateProps({ isActive: false });
+
+    expect(getByTestId('testFavorite__heart-empty')).toBeVisible();
+  });
 });
