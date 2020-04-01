@@ -5,21 +5,21 @@
       :data-testid="testId ? `${testId}__carbs` : null"
     >
       <div class="dot"></div>
-      <span>{{ nutrition.carbs }}g</span>
+      <span :style="labelStyle">{{ nutrition.carbs }}g</span>
     </div>
     <div
       class="cm-recipe-nutrition__info protein"
       :data-testid="testId ? `${testId}__protein` : null"
     >
       <div class="dot"></div>
-      <span>{{ nutrition.protein }}g</span>
+      <span :style="labelStyle">{{ nutrition.protein }}g</span>
     </div>
     <div
       class="cm-recipe-nutrition__info fats"
       :data-testid="testId ? `${testId}__fats` : null"
     >
       <div class="dot"></div>
-      <span>{{ nutrition.fats }}g</span>
+      <span :style="labelStyle">{{ nutrition.fats }}g</span>
     </div>
   </div>
 </template>
@@ -32,9 +32,26 @@ export default {
       type: Object,
       required: true
     },
+    labelColor: {
+      type: String,
+      default: '#6f737a'
+    },
+    size: {
+      type: String,
+      default: 'small'
+    },
     testId: {
       type: String,
       default: null
+    }
+  },
+  computed: {
+    labelStyle() {
+      return {
+        color: this.labelColor,
+        fontSize: this.size === 'small' ? '12px' : '14px',
+        lineHeight: this.size === 'small' ? '14px' : '16px'
+      };
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="cm-icon-with-label">
     <component :is="svgIcon" v-if="icon" />
-    <span>{{ label }}</span>
+    <span :style="labelColorStyle">{{ label }}</span>
   </div>
 </template>
 
@@ -13,6 +13,10 @@ export default {
       type: String,
       default: ''
     },
+    labelColor: {
+      type: String,
+      default: '#393c40'
+    },
     icon: {
       type: String,
       default: null
@@ -22,6 +26,12 @@ export default {
     svgIcon() {
       return () =>
         import(/* webpackPrefetch: true */ `@/assets/icons/${this.icon}.svg`);
+    },
+    labelColorStyle() {
+      return {
+        color: this.labelColor,
+        marginLeft: this.icon ? 8 : 0
+      };
     }
   }
 };
@@ -36,7 +46,6 @@ export default {
     margin-left: 8px;
     font-size: 12px;
     line-height: 14px;
-    color: $gray-2;
   }
 }
 </style>

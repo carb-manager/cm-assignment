@@ -7,6 +7,7 @@
       inactive-color="#AAAEB3"
       active-color="#FDA01E"
       :show-rating="false"
+      glow-color="transparent"
     />
     <span v-if="hasLabel" :data-testid="testId ? `${testId}__count` : null"
       >{{ rating.count }} ratings</span

@@ -12,7 +12,7 @@
         <span>Premium Recipe</span>
       </div>
     </div>
-    <div v-if="isPremium" class="cm-recipe-card__body">
+    <div class="cm-recipe-card__body">
       <div
         class="cm-recipe-card__body__title"
         :data-testid="testId ? `${testId}__recipe-title` : null"
@@ -41,65 +41,22 @@
 </template>
 <script>
 import FavoriteHeart from './FavoriteHeart';
-import StarRating from './StarRating';
-import IconWithLabel from './IconWithLabel';
-import RecipeNutrition from './RecipeNutrition';
 
 import trophyIcon from '@/assets/icons/trophy.svg';
 
-import { timeConvert, calorieConvert } from '@/utils';
+import { recipeCardMixin } from '@/utils/mixins';
 export default {
   name: 'RecipeCard',
   components: {
     trophyIcon,
-    FavoriteHeart,
-    StarRating,
-    IconWithLabel,
-    RecipeNutrition
+    FavoriteHeart
   },
+  mixins: [recipeCardMixin],
   props: {
-    title: {
-      type: String,
-      default: ''
-    },
-    recipe: {
-      type: Object,
-      required: true
-    },
     isPremium: Boolean,
-    energyUnits: {
-      type: String,
-      required: true,
-      validator: value => {
-        const isValid = ['calories', 'kilojoules'].includes(value);
-        if (!isValid) {
-          console.error(
-            `energyUnits prop must include "calories" or "kilojoules".`
-          );
-        }
-        return isValid;
-      }
-    },
     hasFavoriteIcon: {
       type: Boolean,
       default: true
-    },
-    testId: {
-      type: String,
-      default: null
-    }
-  },
-  computed: {
-    recipeDuration() {
-      return timeConvert(this.recipe.duration);
-    },
-    recipeCals() {
-      return calorieConvert(this.recipe.nutrition.calories, this.energyUnits);
-    }
-  },
-  methods: {
-    onClick($event) {
-      this.$emit('click', $event);
     }
   }
 };

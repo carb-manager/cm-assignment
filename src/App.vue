@@ -39,7 +39,11 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+* {
+  box-sizing: border-box;
+}
+
 #app {
   font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -50,14 +54,20 @@ export default {
 }
 </style>
 
-<style scoped>
+<style lang="scss" scoped>
 .cm-logo-wrapper {
   margin-bottom: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .cm-logo {
   max-width: 150px;
   height: auto;
+
+  svg {
+    width: 150px;
+  }
 }
 
 .cm-container {
