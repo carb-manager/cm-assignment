@@ -51,6 +51,8 @@ export default {
 
 <style lang="scss" scoped>
 .cm-recipe-of-day {
+  text-align: left;
+
   &__image-wrapper {
     position: relative;
     width: 343px;

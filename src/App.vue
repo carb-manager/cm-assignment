@@ -15,6 +15,7 @@
           energy-units="calories"
           :is-premium="true"
         />
+        <RecipeOfDay :recipe="mockRecipe" energy-units="calories" />
       </div>
     </div>
   </div>
@@ -22,6 +23,7 @@
 
 <script>
 import RecipeCard from './components/RecipeCard.vue';
+import RecipeOfDay from './components/RecipeOfDay';
 import cmLogo from '@/assets/cm-logo.svg';
 import { mockRecipe } from '../tests/mocks';
 
@@ -29,6 +31,7 @@ export default {
   name: 'App',
   components: {
     RecipeCard,
+    RecipeOfDay,
     cmLogo
   },
   data() {
@@ -79,5 +82,10 @@ export default {
 .premium-recipe-wrapper {
   margin-top: 100px;
   padding: 16px;
+  display: flex;
+
+  div + div {
+    margin-left: 30px;
+  }
 }
 </style>
