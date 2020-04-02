@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.4",
-    "vue": "^2.6.11"
+    "vue": "^2.6.11",
+    "vue-svg-loader": "^0.16.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.7",
