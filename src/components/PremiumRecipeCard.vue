@@ -20,12 +20,14 @@
 <script>
   import HeartIcon from "./subcomponents/HeartIcon.vue";
   import StarRating from "./subcomponents/StarRating.vue";
+  import MealIcon from '../assets/meal.svg';
 
   export default {
     name: "PremiumRecipeCard",
     components: {
       HeartIcon,
       StarRating,
+      MealIcon
     },
     props: {
       title: {
@@ -147,6 +149,17 @@
     margin-bottom:12px;
     flex-grow: 1;
   }
+  
+  .meal-icon{
+    width:80px;
+    opacity:0.2;
+    display: block;
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%,-50%);
+  }
+
 
   @media only screen and (max-width: 768px) {
     .recipe-card {
