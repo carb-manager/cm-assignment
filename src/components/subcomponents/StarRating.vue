@@ -38,12 +38,14 @@ export default {
     },
     showRatingsCount: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   computed: {
     starCount() {
-      return Math.round(this.rating*2)/2;
+      // ensure rating is between 0 and 5
+      let rating = Math.min(Math.max(parseFloat(this.rating), 0), 5);
+      return Math.round(rating*2)/2;
     }
   },
 };

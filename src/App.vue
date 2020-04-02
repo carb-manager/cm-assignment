@@ -2,11 +2,10 @@
   <div id="app">
     <div class="cm-container">
       <div class="cm-logo-wrapper">
-        <img alt="Carb Manager" src="./assets/cm-logo.svg" class="cm-logo" />
+        <CarbManager style="width:200px"/>
       </div>
       <h2>Carb Manager Dev Assignment</h2>
       <p>See the README file for assignment requirements.</p>
-
       <div class="premium-recipe-wrapper">
         <PremiumRecipeCard 
           title="Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
@@ -17,7 +16,7 @@
           v-bind:fats="5"
           v-bind:recipeDurationMinutes="60"
           v-bind:energyValue="320"
-          v-bind:rating="3.2"
+          v-bind:rating="3.24"
           v-bind:ratingsCount="221"
         />
         <PremiumRecipeCard 
@@ -26,6 +25,28 @@
           v-bind:protein="21"
           v-bind:fats="5"
           v-bind:rating="3.25"
+          v-bind:energyValue="320"
+          v-bind:recipeDurationMinutes="31"
+          energyUnit="kJ"
+        />
+        <PremiumRecipeCard 
+          v-bind:v-bind:favorite="true"
+          title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, laborum."
+          v-bind:carbs="55"
+          v-bind:protein="21"
+          v-bind:fats="5"
+          v-bind:recipeDurationMinutes="1"
+          v-bind:rating="4.9"
+        />
+        <RecipeOfTheDayCard 
+          recipeImageUrl="/noodles.jpeg"
+          title="Keto Italian Beef With Cabbage Noodles"
+          v-bind:rating="3.2"
+        />
+        <RecipeOfTheDayCard 
+          recipeImageUrl="/noodles.jpeg"
+          title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, laborum."
+          v-bind:rating="5"
         />
       </div>
     </div>
@@ -33,14 +54,18 @@
 </template>
 
 <script>
-import PremiumRecipeCard from "./components/PremiumRecipeCard.vue";
+  import PremiumRecipeCard from "./components/PremiumRecipeCard.vue";
+  import RecipeOfTheDayCard from "./components/RecipeOfTheDayCard.vue";
+  import CarbManager from "./assets/cm-logo.svg";
 
-export default {
-  name: "App",
-  components: {
-    PremiumRecipeCard
-  }
-};
+  export default {
+    name: "App",
+    components: {
+      PremiumRecipeCard,
+      RecipeOfTheDayCard,
+      CarbManager
+    }
+  };
 </script>
 
 <style>
