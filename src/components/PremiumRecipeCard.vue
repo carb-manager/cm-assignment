@@ -4,6 +4,9 @@
       <MealIcon v-if="!recipeImageUrl" class="meal-icon"/>
       <div class="recipe-image-overlay"></div>
       <div class="recipe-heart"><HeartIcon v-bind:active="favorite"/></div>
+      <div class="premium-badge">
+        <TrophyIcon /> Premium Recipe
+      </div>
     </div>
     <div class="recipe-details">
       <h3 class="recipe-title">{{ title }}</h3>
@@ -13,20 +16,42 @@
         v-bind:ratingsCount="ratingsCount"
         v-bind:showRatingsCount="true"
       />
+      <div class="recipe-meta">
+        <RecipeDuration 
+          v-bind:minutes="recipeDurationMinutes"
+        />
+        <EnergyUnit 
+          v-bind:value="energyValue"
+          v-bind:unit="energyUnit"
+        />
+        <MacroDots 
+          v-bind:carbs="carbs"
+          v-bind:protein="protein"
+          v-bind:fats="fats"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import HeartIcon from "./subcomponents/HeartIcon.vue";
+  import MacroDots from "./subcomponents/MacroDots.vue";
   import StarRating from "./subcomponents/StarRating.vue";
+  import EnergyUnit from "./subcomponents/EnergyUnit.vue";
+  import RecipeDuration from "./subcomponents/RecipeDuration.vue";
+  import HeartIcon from "./subcomponents/HeartIcon.vue";
+  import TrophyIcon from '../assets/trophy.svg';
   import MealIcon from '../assets/meal.svg';
 
   export default {
     name: "PremiumRecipeCard",
     components: {
-      HeartIcon,
+      MacroDots,
       StarRating,
+      EnergyUnit,
+      RecipeDuration,
+      TrophyIcon,
+      HeartIcon,
       MealIcon
     },
     props: {
@@ -85,7 +110,6 @@
     box-shadow: 0px 13px 35px rgba(0, 30, 47, 0.1);
   }
 
-
   .recipe-image-overlay{
     background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(22, 27, 35, 0.2) 70.94%, rgba(26, 29, 34, 0.79) 106.25%);
     position: absolute;
@@ -135,7 +159,6 @@
     z-index: 3;
   }
 
-
   .recipe-title{
     font-size: 18px;
     line-height: 20px;
@@ -149,7 +172,24 @@
     margin-bottom:12px;
     flex-grow: 1;
   }
-  
+
+  .premium-badge{
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    background: rgba(255,255,255,0.2);
+    color:white;
+    padding: 3px 10px;
+    border-radius: 10px;
+    z-index:2;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 12px;
+    letter-spacing: -0.2px;
+    color: #FFFFFF;
+  }
+
   .meal-icon{
     width:80px;
     opacity:0.2;
@@ -160,6 +200,21 @@
     transform: translate(-50%,-50%);
   }
 
+  .recipe-meta{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  .recipe-meta > div:first-child{
+    margin-right: 20px;
+  }
+
+  .recipe-meta > div:last-child{
+    margin-left: auto;
+  }
 
   @media only screen and (max-width: 768px) {
     .recipe-card {
