@@ -7,22 +7,30 @@
     </div>
     <div class="recipe-details">
       <h3 class="recipe-title">{{ title }}</h3>
+      <StarRating 
+        class="star-rating"
+        v-bind:rating="rating"
+        v-bind:ratingsCount="ratingsCount"
+        v-bind:showRatingsCount="true"
+      />
     </div>
   </div>
 </template>
 
 <script>
   import HeartIcon from "./subcomponents/HeartIcon.vue";
+  import StarRating from "./subcomponents/StarRating.vue";
 
   export default {
     name: "PremiumRecipeCard",
     components: {
       HeartIcon,
+      StarRating,
     },
     props: {
       title: {
         type: String,
-        default: 'box'
+        default: 'This is a recipe title'
       },
       rating: Number,
       ratingsCount: Number,

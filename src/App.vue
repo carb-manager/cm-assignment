@@ -11,6 +11,21 @@
         <PremiumRecipeCard 
           title="Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
           recipeImageUrl="/chicken.jpg"
+          v-bind:favorite="true"
+          v-bind:carbs="55"
+          v-bind:protein="21"
+          v-bind:fats="5"
+          v-bind:recipeDurationMinutes="60"
+          v-bind:energyValue="320"
+          v-bind:rating="3.2"
+          v-bind:ratingsCount="221"
+        />
+        <PremiumRecipeCard 
+          v-bind:favorite="false"
+          v-bind:carbs="55"
+          v-bind:protein="21"
+          v-bind:fats="5"
+          v-bind:rating="3.25"
         />
       </div>
     </div>
@@ -29,35 +44,38 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  #app {
+    font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 60px;
+  }
 </style>
 
 <style scoped>
-.cm-logo-wrapper {
-  margin-bottom: 30px;
-}
+  .cm-logo-wrapper {
+    margin-bottom: 30px;
+  }
 
-.cm-logo {
-  max-width: 150px;
-  height: auto;
-}
+  .cm-logo {
+    max-width: 150px;
+    height: auto;
+  }
 
-.cm-container {
-  max-width: 960px;
-  margin: auto;
-}
+  .cm-container {
+    max-width: 1200px;
+    margin: auto;
+  }
 
-/** Remove these styles when done */
-.premium-recipe-wrapper {
-  margin-top: 100px;
-  border: 2px dashed red;
-  padding: 16px;
-}
+  .premium-recipe-wrapper{
+    display: flex;
+    flex-flow: row wrap;
+    flex: 1 0 50%; 
+  }
+
+  .premium-recipe-wrapper > div{
+    margin: 20px;
+  }
 </style>
