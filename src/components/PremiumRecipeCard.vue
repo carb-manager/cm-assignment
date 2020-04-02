@@ -1,5 +1,10 @@
 <template>
   <div class="recipe-card" @click="$emit('click')">
+    <div class="recipe-image" :style="recipeImageStyle">
+      <MealIcon v-if="!recipeImageUrl" class="meal-icon"/>
+      <div class="recipe-image-overlay"></div>
+      <div class="recipe-heart"><HeartIcon v-bind:active="favorite"/></div>
+    </div>
     <div class="recipe-details">
       <h3 class="recipe-title">{{ title }}</h3>
     </div>
@@ -7,10 +12,12 @@
 </template>
 
 <script>
+  import HeartIcon from "./subcomponents/HeartIcon.vue";
 
   export default {
     name: "PremiumRecipeCard",
     components: {
+      HeartIcon,
     },
     props: {
       title: {
@@ -66,6 +73,56 @@
     overflow:hidden;
     cursor:pointer;
     box-shadow: 0px 13px 35px rgba(0, 30, 47, 0.1);
+  }
+
+
+  .recipe-image-overlay{
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.0001) 0%, rgba(22, 27, 35, 0.2) 70.94%, rgba(26, 29, 34, 0.79) 106.25%);
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
+  }
+
+  .recipe-card .recipe-image-overlay:after{
+    content:'';
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    z-index:1;
+    transition: background 80ms linear;
+    background:rgba(255,255,255,0);
+  }
+
+  .recipe-card:hover .recipe-image-overlay:after{
+    background:rgba(255,255,255,0.2);
+  }
+  
+  .recipe-image{
+    height: 200px;
+    position:relative;
+    background-position: center center;
+    background-size: cover;
+  }
+
+  .recipe-details{
+    padding: 10px 16px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: 120px;
+    box-sizing:border-box;
+  }
+
+  .recipe-heart{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 3;
   }
 
 

@@ -8,7 +8,10 @@
       <p>See the README file for assignment requirements.</p>
 
       <div class="premium-recipe-wrapper">
-        <PremiumRecipeCard />
+        <PremiumRecipeCard 
+          title="Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
+          recipeImageUrl="/chicken.jpg"
+        />
       </div>
     </div>
   </div>
