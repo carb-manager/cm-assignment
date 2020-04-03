@@ -18,9 +18,6 @@ export const Default = () => ({
     rating: {
       default: number("Star Rating", 3)
     },
-    ratingsCount: {
-      default: number("Ratings Count", 200)
-    },
     carbs: {
       default: number("Carbs", 35)
     },
