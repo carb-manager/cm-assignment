@@ -16,15 +16,11 @@ describe("PremiumRecipeCard.vue", () => {
       ratingsCount: 221
     } 
   })
+  it('render title', () => {
+    expect(wrapper.find('.recipe-title').text()).toBe("Low Carb Thai Chicken Curry With Coconut Cauliflower Rice");
+  })
   it('has a premium badge', () => {
-    expect(wrapper.contains()
-  })
-  it('shows macro carbs', () => {
-  })
-  it('displays a ratings count', () => {
-  })
-  it('renders a list of stars with class `active` equal to prop.grade', () => {
-    expect(wrapper.findAll('.recipe-heart').length).toEqual(1)
+    expect(wrapper.contains('.premium-badge')).toBe(true);
   })
 });
 
