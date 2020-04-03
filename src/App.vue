@@ -9,15 +9,15 @@
       <div class="premium-recipe-wrapper">
         <PremiumRecipeCard 
           title="Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
-          recipeImageUrl="/chicken.jpg"
+          recipe-image-url="/chicken.jpg"
           v-bind:favorite="true"
           v-bind:carbs="55"
           v-bind:protein="21"
           v-bind:fats="5"
-          v-bind:recipeDurationMinutes="60"
-          v-bind:energyValue="320"
+          v-bind:recipe-duration-minutes="60"
+          v-bind:energy-value="320"
           v-bind:rating="3.24"
-          v-bind:ratingsCount="221"
+          v-bind:ratings-count="221"
         />
         <PremiumRecipeCard 
           v-bind:favorite="false"
@@ -25,8 +25,8 @@
           v-bind:protein="21"
           v-bind:fats="5"
           v-bind:rating="3.25"
-          v-bind:energyValue="320"
-          v-bind:recipeDurationMinutes="31"
+          v-bind:energy-value="320"
+          v-bind:recipe-duration-minutes="31"
           energyUnit="kJ"
         />
         <PremiumRecipeCard 
@@ -35,11 +35,11 @@
           v-bind:carbs="55"
           v-bind:protein="21"
           v-bind:fats="5"
-          v-bind:recipeDurationMinutes="1"
+          v-bind:recipe-duration-minutes="1"
           v-bind:rating="4.9"
         />
         <RecipeOfTheDayCard 
-          recipeImageUrl="/noodles.jpeg"
+          recipe-image-url="/noodles.jpeg"
           title="Keto Italian Beef With Cabbage Noodles"
           v-bind:rating="3.2"
           v-bind:carbs="11"
@@ -47,7 +47,7 @@
           v-bind:fats="3"
         />
         <RecipeOfTheDayCard 
-          recipeImageUrl="/noodles.jpeg"
+          recipe-image-url="/noodles.jpeg"
           title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, laborum."
           v-bind:rating="5"
           v-bind:carbs="522"
