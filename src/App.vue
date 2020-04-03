@@ -45,6 +45,9 @@
           v-bind:carbs="11"
           v-bind:protein="5"
           v-bind:fats="3"
+          v-bind:energy-value="320"
+          v-bind:recipe-duration-minutes="31"
+          energyUnit="kJ"
         />
         <RecipeOfTheDayCard 
           recipe-image-url="/noodles.jpeg"
@@ -53,6 +56,8 @@
           v-bind:carbs="522"
           v-bind:protein="100"
           v-bind:fats="51"
+          v-bind:energy-value="555"
+          v-bind:recipe-duration-minutes="2"
         />
       </div>
     </div>

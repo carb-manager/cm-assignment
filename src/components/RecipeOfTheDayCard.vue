@@ -6,6 +6,17 @@
       <StarRating 
         v-bind:rating="rating"
       />
+      <div class="recipe-meta">
+        <RecipeDuration 
+          v-bind:minutes="recipeDurationMinutes"
+          v-bind:show-icon="false"
+        />
+        <EnergyUnit 
+          v-bind:value="energyValue"
+          v-bind:unit="energyUnit"
+          v-bind:show-icon="false"
+        />
+      </div>
       <div class="recipe-details__bottom-row">
         <MacroDots 
           v-bind:carbs="carbs"
@@ -22,12 +33,16 @@
 <script>
   import MacroDots from "./subcomponents/MacroDots.vue";
   import StarRating from "./subcomponents/StarRating.vue";
+  import EnergyUnit from "./subcomponents/EnergyUnit.vue";
+  import RecipeDuration from "./subcomponents/RecipeDuration.vue";
 
   export default {
     name: "RecipeOfTheDayCard",
     components: {
       MacroDots,
-      StarRating
+      StarRating,
+      EnergyUnit,
+      RecipeDuration,
     },
     props: {
       title: {
@@ -46,18 +61,12 @@
         type: String,
         default: ''
       },
-      carbs: {
-        type: Number,
-        default: 0
-      },
-      protein: {
-        type: Number,
-        default: 0
-      },
-      fats: {
-        type: Number,
-        default: 0
-      },
+      carbs: Number,
+      protein: Number,
+      fats: Number,
+      recipeDurationMinutes: Number,
+      energyValue: Number,
+      energyUnit: String
     },
     computed: {
       recipeImageStyle() {
@@ -152,5 +161,21 @@
 
   .macro-dots{
     font-size:14px;
+  }
+
+  .recipe-meta{
+    font-size: 14px;
+  }
+  .recipe-meta > div{
+    display: inline-block;
+    margin-right: 10px;
+  }
+  .recipe-meta > div:first-child:after{
+    content:'●';
+    font-size: 10px;
+    margin-left: 5px;
+    line-height: 5px;
+    vertical-align: top;
+    line-height: 20px;
   }
 </style>
