@@ -1,6 +1,6 @@
 <template>
   <div class="energy-unit">
-    <CalsIcon/> {{energyValue}} {{unit}}
+    <CalsIcon class="cals-icon"/> {{energyValue}} {{unit}}
   </div>
 </template>
 
@@ -32,4 +32,9 @@ export default {
 </script>
 
 <style scoped>
+.cals-icon{
+  margin-right: 5px;
+  vertical-align: top;
+  margin-top: -2px;
+}
 </style>

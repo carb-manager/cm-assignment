@@ -42,11 +42,17 @@
           recipeImageUrl="/noodles.jpeg"
           title="Keto Italian Beef With Cabbage Noodles"
           v-bind:rating="3.2"
+          v-bind:carbs="11"
+          v-bind:protein="5"
+          v-bind:fats="3"
         />
         <RecipeOfTheDayCard 
           recipeImageUrl="/noodles.jpeg"
           title="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur, laborum."
           v-bind:rating="5"
+          v-bind:carbs="522"
+          v-bind:protein="100"
+          v-bind:fats="51"
         />
       </div>
     </div>

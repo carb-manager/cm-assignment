@@ -11,6 +11,7 @@
           v-bind:carbs="carbs"
           v-bind:protein="protein"
           v-bind:fats="fats"
+          class="macro-dots"
         />
         <div class="btn-learn-more">Learn More</div>
       </div>
@@ -147,5 +148,9 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-top: auto;
+  }
+
+  .macro-dots{
+    font-size:14px;
   }
 </style>

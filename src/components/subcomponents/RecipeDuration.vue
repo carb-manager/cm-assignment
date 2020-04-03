@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-duration">
-    <ClockIcon/> {{duration}}
+    <ClockIcon class="clock-icon"/> {{duration}}
   </div>
 </template>
 
@@ -28,4 +28,9 @@ export default {
 </script>
 
 <style scoped>
+.clock-icon{
+  margin-right: 5px;
+  vertical-align: top;
+  margin-top: -2px;
+}
 </style>

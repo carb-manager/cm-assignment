@@ -5,11 +5,12 @@
       <div class="recipe-image-overlay"></div>
       <div class="recipe-heart"><HeartIcon v-bind:active="favorite"/></div>
       <div class="premium-badge">
-        <TrophyIcon /> Premium Recipe
+        <TrophyIcon class="trophy-icon"/> Premium Recipe
       </div>
     </div>
     <div class="recipe-details">
       <h3 class="recipe-title">{{ title }}</h3>
+      <div class="spacer"></div>
       <StarRating 
         class="star-rating"
         v-bind:rating="rating"
@@ -132,7 +133,7 @@
   }
 
   .recipe-details{
-    padding: 10px 16px;
+    padding: 10px 16px 16px;
     display:flex;
     flex-direction: column;
     align-items: flex-start;
@@ -158,6 +159,9 @@
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     margin-bottom:12px;
+  }
+
+  .spacer{
     flex-grow: 1;
   }
 
@@ -167,7 +171,7 @@
     left: 10px;
     background: rgba(255,255,255,0.2);
     color:white;
-    padding: 3px 10px;
+    padding: 5px 10px;
     border-radius: 10px;
     z-index:2;
     font-style: normal;
@@ -176,6 +180,11 @@
     line-height: 12px;
     letter-spacing: -0.2px;
     color: #FFFFFF;
+  }
+
+  .trophy-icon{
+    margin-right: 5px;
+    vertical-align: top;
   }
 
   .meal-icon{
@@ -194,6 +203,7 @@
     align-items: center;
     width: 100%;
     margin-top: 4px;
+    font-size: 12px;
   }
 
   .recipe-meta > div:first-child{
