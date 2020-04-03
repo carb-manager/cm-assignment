@@ -8,7 +8,10 @@
 import CalsIcon from '../../assets/cals.svg';
 
 export default {
-  name: "unit",
+  name: "EnergyUnit",
+  components: {
+    CalsIcon
+  },
   props: {
     value: {
       type: Number,
@@ -19,14 +22,12 @@ export default {
       default: 'Calories'
     }
   },
-  components: {
-    CalsIcon
-  },
   computed: {
     energyValue() {
       return (this.unit === "kJ") ? Math.round(4.184 * this.value) : this.value;
     }
   },
+  methods: {}
 };
 </script>
 
