@@ -18,6 +18,9 @@ export const Default = () => ({
     rating: {
       default: number("Star Rating", 3)
     },
+    ratingsCount: {
+      default: number("Ratings Count", 200)
+    },
     carbs: {
       default: number("Carbs", 35)
     },
@@ -27,7 +30,16 @@ export const Default = () => ({
     fats: {
       default: number("Fats", 35)
     },
+    energyValue: {
+      default: number("Energy Value", 516)
+    },
+    energyUnit: {
+      default: text("Energy Unit", 'Calories')
+    },
+    recipeDuration: {
+      default: number("Recipe Duration Min",  136)
+    }
   },
-  template: '<RecipeOfTheDayCard @click="action" v-bind:title="title" v-bind:rating="rating" v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" />',
+  template: '<RecipeOfTheDayCard @click="action" v-bind:title="title" v-bind:rating="rating" v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" v-bind:energy-value="energyValue" v-bind:energy-unit="energyUnit"  v-bind:recipe-duration-minutes="recipeDuration" />',
   methods: { action: action("clicked") }
 });
