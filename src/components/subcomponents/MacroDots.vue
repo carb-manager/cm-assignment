@@ -1,6 +1,6 @@
 <template>
   <div class="macro-dots">
-    <span class="macro-dot--carb">●</span>{{carbs}}
+    <span class="macro-dot--carbs">●</span>{{carbs}}
     <span class="macro-dot--protein">●</span>{{protein}}
     <span class="macro-dot--fats">●</span>{{fats}}
   </div>
@@ -9,7 +9,20 @@
 <script>
 export default {
   name: "MacroDots",
-  props: ['carbs', 'protein', 'fats']
+  props: {
+    carbs: {
+      type: Number,
+      default: 0
+    },
+    protein: {
+      type: Number,
+      default: 0
+    },
+    fats: {
+      type: Number,
+      default: 0
+    },
+  }
 };
 </script>
 
@@ -27,7 +40,7 @@ export default {
     line-height: 12px;
   }
 
-  .macro-dot--carb{
+  .macro-dot--carbs{
     color: #F94642;
   }
   .macro-dot--protein{
