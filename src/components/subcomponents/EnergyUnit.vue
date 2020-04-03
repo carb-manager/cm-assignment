@@ -1,6 +1,6 @@
 <template>
   <div class="energy-unit">
-    <CalsIcon class="cals-icon"/> {{energyValue}} {{unit}}
+    <CalsIcon class="cals-icon" v-if="showIcon"/> {{energyValue}} {{unit}}
   </div>
 </template>
 
@@ -20,6 +20,10 @@ export default {
     unit: {
       type: String,
       default: 'Calories'
+    },
+    showIcon: {
+      type: Boolean,
+      default: true
     }
   },
   computed: {

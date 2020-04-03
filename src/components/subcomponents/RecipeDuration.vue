@@ -1,6 +1,6 @@
 <template>
   <div class="recipe-duration">
-    <ClockIcon class="clock-icon"/> {{duration}}
+    <ClockIcon class="clock-icon" v-if="showIcon"/> {{duration}}
   </div>
 </template>
 
@@ -14,6 +14,10 @@ export default {
     minutes: {
       type: Number,
       default: 0
+    },
+    showIcon: {
+      type: Boolean,
+      default: true
     }
   },
   components: {
