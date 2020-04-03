@@ -1,8 +1,8 @@
 <template>
   <div class="macro-dots">
-    <span class="macro-dot--carbs">●</span>{{carbs}}
-    <span class="macro-dot--protein">●</span>{{protein}}
-    <span class="macro-dot--fats">●</span>{{fats}}
+    <span class="macro-dot--carbs">●</span>{{carbs}}g
+    <span class="macro-dot--protein">●</span>{{protein}}g
+    <span class="macro-dot--fats">●</span>{{fats}}g
   </div>
 </template>
 
