@@ -14,8 +14,8 @@
       <StarRating 
         class="star-rating"
         v-bind:rating="rating"
-        v-bind:ratingsCount="ratingsCount"
-        v-bind:showRatingsCount="true"
+        v-bind:ratings-count="ratingsCount"
+        v-bind:show-ratings-count="true"
       />
       <div class="recipe-meta">
         <RecipeDuration 

@@ -32,9 +32,18 @@ export const Default = () => ({
     },
     favorite: {
       default: boolean('Favorite', false)
-    }
+    },
+    energyValue: {
+      default: number("Energy Value", 516)
+    },
+    energyUnit: {
+      default: text("Energy Unit", 'Calories')
+    },
+    recipeDuration: {
+      default: number("Recipe Duration Min",  136)
+    },
   },
-  template: '<PremiumRecipeCard @click="action" v-bind:title="title" v-bind:favorite="favorite" v-bind:rating="rating" v-bind:ratingsCount="ratingsCount" v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" v-bind:favorite="favorite" />',
+  template: '<PremiumRecipeCard @click="action" v-bind:title="title" v-bind:favorite="favorite" v-bind:rating="rating" v-bind:ratings-count="ratingsCount" v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" v-bind:favorite="favorite"  v-bind:energy-value="energyValue"  v-bind:energy-unit="energyUnit"  v-bind:recipe-duration-minutes="recipeDuration" />',
   methods: { action: action("clicked") }
 })
 
