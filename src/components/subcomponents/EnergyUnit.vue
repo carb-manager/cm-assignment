@@ -1,6 +1,6 @@
 <template>
   <div class="energy-unit">
-    <CalsIcon class="cals-icon" v-if="showIcon"/> {{energyValue}} {{unit}}
+    <CalsIcon class="cals-icon" v-if="showIcon"/> {{energyValue}} {{formattedUnit}}
   </div>
 </template>
 
@@ -28,7 +28,10 @@ export default {
   },
   computed: {
     energyValue() {
-      return (this.unit === "kJ") ? Math.round(4.184 * this.value) : this.value;
+      return (this.formattedUnit === "kJ") ? Math.round(4.184 * this.value) : this.value;
+    },
+    formattedUnit() {
+      return ["kj", "kilojoule", "kilojoules"].indexOf(this.unit.toLowerCase()) > -1 ? 'kJ' : 'Calories'; 
     }
   },
   methods: {}
