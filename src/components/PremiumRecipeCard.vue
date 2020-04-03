@@ -69,22 +69,10 @@
         type: String,
         default: ''
       },
-      carbs: {
-        type: Number,
-        default: 0
-      },
-      protein: {
-        type: Number,
-        default: 0
-      },
-      fats: {
-        type: Number,
-        default: 0
-      },
-      recipeDurationMinutes: {
-        type: Number,
-        default: 0
-      },
+      carbs: Number,
+      protein: Number,
+      fats: Number,
+      recipeDurationMinutes: Number,
       energyValue: Number,
       energyUnit: String
     },
