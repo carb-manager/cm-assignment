@@ -65,4 +65,21 @@ describe("PremiumRecipeCard", () => {
     expect(queryAllByAltText("Filled star")).toHaveLength(3);
     expect(queryAllByAltText("Unfilled star")).toHaveLength(2);
   });
+
+  it("renders time in correct format when more than 60 minutes", () => {
+    const title = "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice";
+    const image = "http://foo.com/image.jpg";
+    const preparationTime = 61;
+
+    const { getByText } = render(PremiumRecipeCard, {
+      props: {
+        title,
+        image,
+        preparationTime
+      }
+    });
+
+    // Assert
+    getByText("1 hr 1 min");
+  });
 });

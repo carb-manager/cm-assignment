@@ -15,14 +15,14 @@
           v-if="preparationTime"
           alt="Preparation time"
           :icon="clockIcon"
-          :text="`${preparationTime} min`"
+          :text="getPreparationTime()"
           spacing="medium"
         ></bullet>
         <bullet
           v-if="calories"
-          alt="Calories"
+          :alt="energyUnits"
           :icon="calsIcon"
-          :text="`${calories} calories`"
+          :text="getEnergy"
           spacing="medium"
         ></bullet>
 
@@ -60,6 +60,8 @@ import PremiumBadge from "./PremiumBadge";
 import Bullet from "./Bullet";
 import Heart from "./Heart";
 
+import { convertToKilojoules } from "../utils";
+
 import clockIcon from "../assets/clock.svg";
 import calsIcon from "../assets/cals.svg";
 import carbsIcon from "../assets/dot-carbs.svg";
@@ -74,6 +76,11 @@ export default {
     title: String,
     preparationTime: Number,
     calories: Number,
+    energyUnits: {
+      type: String,
+      required: false,
+      default: "Calories"
+    },
     carbs: Number,
     protein: Number,
     fats: Number,
@@ -96,6 +103,25 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    }
+  },
+  computed: {
+    getEnergy() {
+      if (this.energyUnits.toLowerCase() === "calories") {
+        return `${this.calories} calories`;
+      }
+      return `${convertToKilojoules(this.calories)} kj`;
+    }
+  },
+  methods: {
+    getPreparationTime() {
+      if (this.preparationTime <= 60) {
+        return `${this.preparationTime} min`;
+      }
+
+      const hours = Math.floor(this.preparationTime / 60);
+      const minutes = this.preparationTime % 60;
+      return `${hours} hr ${minutes} min`;
     }
   },
   data() {

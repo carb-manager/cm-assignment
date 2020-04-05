@@ -1,7 +1,12 @@
-import { withKnobs, boolean, text, number } from "@storybook/addon-knobs";
+import { withKnobs, boolean, text, number, select } from "@storybook/addon-knobs";
 
 import PremiumRecipeCard from "../src/components/PremiumRecipeCard.vue";
 import Image from "../src/assets/lowcarbthaichickencurry.jpeg";
+
+const EnergyUnits = {
+  Calories: "Calories",
+  Kilojoules: "Kilojoules"
+};
 
 export default {
   title: "Premium Recipe Card",
@@ -37,6 +42,9 @@ export const KitchenSink = () => ({
     calories: {
       default: () => number("Calories (kcal)", 489)
     },
+    energyUnits: {
+      default: () => select("Enery Units", EnergyUnits)
+    },
     carbs: {
       default: () => number("Carbs (g)", 20)
     },
@@ -64,6 +72,7 @@ export const KitchenSink = () => ({
     :image="image"
     :preparationTime="preparationTime"
     :calories="calories"
+    :energy-units="energyUnits"
     :carbs="carbs"
     :protein="protein"
     :fats="fats"
