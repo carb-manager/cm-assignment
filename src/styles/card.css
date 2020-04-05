@@ -66,7 +66,7 @@
   }
 }
 
-@media (--cm_large_viewport) {
+@media (--cm_medium_viewport) {
   .cm-c-card__image {
     width: initial;
     top: -100%;
