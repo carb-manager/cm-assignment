@@ -6,19 +6,14 @@
     </div>
     <div>
       <h2>{{ title }}</h2>
+      <star-rating :stars="3" :ratings="200"></star-rating>
       <div>
-        <star-rating :stars="3" :ratings="200"></star-rating>
-      </div>
-      <div>
-        <div><img alt="Preparation time" src="../assets/clock.svg" />24 min</div>
-        <div><img alt="Calories" src="../assets/cals.svg" />489 calories</div>
-        <div>
-          <ul>
-            <li>20g</li>
-            <li>16g</li>
-            <li>6g</li>
-          </ul>
-        </div>
+        <bullet alt="Preparation time" :icon="clockIcon" text="24 min"></bullet>
+        <bullet alt="Calories" :icon="calsIcon" text="489 calories"></bullet>
+
+        <bullet alt="20g Carbs" :icon="carbsIcon" text="20g"></bullet>
+        <bullet alt="16g Protein" :icon="proteinIcon" text="16g"></bullet>
+        <bullet alt="6g Fats" :icon="fatsIcon" text="6g"></bullet>
       </div>
     </div>
   </div>
@@ -27,12 +22,28 @@
 <script>
 import StarRating from "./StarRating";
 import PremiumBadge from "./PremiumBadge";
+import Bullet from "./Bullet";
+
+import clockIcon from "../assets/clock.svg";
+import calsIcon from "../assets/cals.svg";
+import carbsIcon from "../assets/dot-carbs.svg";
+import proteinIcon from "../assets/dot-protein.svg";
+import fatsIcon from "../assets/dot-fats.svg";
 
 export default {
-  name: "PremiumRecipeCard",
-  components: { StarRating, PremiumBadge },
+  name: "premium-recipe-card",
+  components: { StarRating, PremiumBadge, Bullet },
   props: {
     title: String
+  },
+  data() {
+    return {
+      clockIcon,
+      calsIcon,
+      carbsIcon,
+      proteinIcon,
+      fatsIcon
+    };
   }
 };
 </script>
