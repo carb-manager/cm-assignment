@@ -1,17 +1,11 @@
 <template>
   <div>
     <div>
-      <!-- Head -->
       <img />
-      <span>
-        <img alt="Premium Recipe" src="../assets/trophy.svg" />
-        Premium Recipe
-      </span>
+      <premium-badge></premium-badge>
     </div>
     <div>
-      <!-- Body -->
       <h2>{{ title }}</h2>
-      <!-- Rating -->
       <div>
         <star-rating :stars="3" :ratings="200"></star-rating>
       </div>
@@ -32,10 +26,11 @@
 
 <script>
 import StarRating from "./StarRating";
+import PremiumBadge from "./PremiumBadge";
 
 export default {
   name: "PremiumRecipeCard",
-  components: { StarRating },
+  components: { StarRating, PremiumBadge },
   props: {
     title: String
   }

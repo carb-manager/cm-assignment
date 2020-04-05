@@ -1,19 +1,19 @@
 import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import PremiumRecipeCard from "../src/components/PremiumRecipeCard.vue";
+import PremiumBadge from "../src/components/PremiumBadge.vue";
 
 export default {
-  title: "Premium Recipe Card",
-  component: PremiumRecipeCard,
+  title: "Premium Badge",
+  component: PremiumBadge,
   decorators: [withKnobs]
 };
 
 export const Default = () => ({
-  components: { PremiumRecipeCard },
+  components: { PremiumBadge },
   props: {
     // Add your props here and hook them up to the template below
   },
-  template: '<PremiumRecipeCard @click="action" />',
+  template: '<PremiumBadge @click="action" />',
   methods: { action: action("clicked") }
 });
