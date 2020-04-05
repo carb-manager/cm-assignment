@@ -1,0 +1,21 @@
+:root {
+  --badge-primary-background: #b3b4b6;
+  --badge-primary-color: #fff;
+}
+
+.cm-c-premium-badge {
+  display: flex;
+  justify-content: space-between;
+  align-self: flex-end;
+  margin: 0.5rem;
+  background: var(--badge-primary-background);
+  border-radius: 10px;
+  color: var(--badge-primary-color);
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  letter-spacing: -0.2px;
+}
+
+.cm-c-premium-badge > img {
+  margin-right: 0.25rem;
+}

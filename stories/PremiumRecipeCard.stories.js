@@ -1,4 +1,4 @@
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, boolean } from "@storybook/addon-knobs";
 
 import PremiumRecipeCard from "../src/components/PremiumRecipeCard.vue";
 import Image from "../src/assets/lowcarbthaichickencurry.jpeg";
@@ -54,6 +54,9 @@ export const KitchenSink = () => ({
     },
     isPremium: {
       default: () => true
+    },
+    isHearted: {
+      default: () => boolean("isHearted", false)
     }
   },
   template: `
@@ -66,7 +69,8 @@ export const KitchenSink = () => ({
     :fats="fats"
     :ratings="ratings"
     :stars="stars"
-    :isPremium="isPremium">
+    :isPremium="isPremium"
+    :isHearted="isHearted">
   </premium-recipe-card>
   `
 });

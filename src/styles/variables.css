@@ -1,0 +1,7 @@
+@custom-media --cm_small_viewport (min-width: 480px);
+@custom-media --cm_medium_viewport (min-width: 768px);
+@custom-media --cm_large_viewport (min-width: 1024px);
+
+:root {
+  --background-color: #e5e5e5;
+}

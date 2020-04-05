@@ -1,11 +1,13 @@
 <template>
   <div class="cm-c-card">
-    <div>
-      <img :alt="title" :src="image" />
-      <premium-badge v-if="isPremium"></premium-badge>
-      <heart :isHearted="isHearted"></heart>
+    <div class="cm-c-card__head">
+      <img :alt="title" :src="image" class="cm-c-card__image" />
+      <div class="cm-c-card__head-content">
+        <premium-badge v-if="isPremium"></premium-badge>
+        <heart :isHearted="isHearted"></heart>
+      </div>
     </div>
-    <div>
+    <div class="cm-c-card__body">
       <h2>{{ title }}</h2>
       <star-rating :stars="stars" :ratings="ratings"></star-rating>
       <div>

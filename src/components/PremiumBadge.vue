@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cm-c-premium-badge">
     <img alt="Premium Recipe" src="../assets/trophy.svg" />
     Premium Recipe
   </div>

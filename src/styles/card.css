@@ -1,0 +1,44 @@
+/* Local Variables */
+:root {
+  --card-height: 200px;
+  --card-max-width: 343px;
+  --card-body-background: #fff;
+}
+
+/* Card Component */
+
+.cm-c-card {
+  width: 100%;
+}
+
+@media (--cm_medium_viewport) {
+  .cm-c-card {
+    max-width: var(--card-max-width);
+  }
+}
+
+.cm-c-card__head {
+  position: relative;
+  overflow: hidden;
+  height: var(--card-height);
+}
+
+.cm-c-card__image {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.cm-c-card__head-content {
+  display: flex;
+  justify-content: space-between;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.cm-c-card__body {
+  background-color: var(--card-body-background);
+  padding: 0.5rem 1rem;
+}

@@ -1,0 +1,28 @@
+:root {
+  --heading-color: #0c0c0a;
+}
+
+body {
+  font-family: "proxima-nova", Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-color);
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  line-height: 20px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  color: var(--heading-color);
+}

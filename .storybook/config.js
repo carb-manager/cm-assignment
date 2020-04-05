@@ -1,1 +1,1 @@
-import "../src/global.css";
+import "../src/styles/cm.css";

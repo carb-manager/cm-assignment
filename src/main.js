@@ -1,7 +1,7 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-import "./global.css";
+import "./styles/cm.css";
 
 Vue.config.productionTip = false;
 
