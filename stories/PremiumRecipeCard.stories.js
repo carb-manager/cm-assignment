@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import { withKnobs, boolean, text, number, select } from "@storybook/addon-knobs";
 
 import PremiumRecipeCard from "../src/components/PremiumRecipeCard.vue";
@@ -67,6 +68,9 @@ export const KitchenSink = () => ({
       default: () => boolean("Hearted?", true)
     }
   },
+  methods: {
+    action: action("Card was clicked")
+  },
   template: `
   <premium-recipe-card :title="title"
     :image="image"
@@ -79,7 +83,8 @@ export const KitchenSink = () => ({
     :ratings="ratings"
     :stars="stars"
     :isPremium="isPremium"
-    :isHearted="isHearted">
+    :isHearted="isHearted"
+    @click="action">
   </premium-recipe-card>
   `
 });

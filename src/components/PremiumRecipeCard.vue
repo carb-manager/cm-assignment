@@ -1,5 +1,5 @@
 <template>
-  <div class="cm-c-card">
+  <div class="cm-c-card cm-u-pointer" @click="$emit('click')">
     <div class="cm-c-card__head">
       <img :alt="title" :src="image" class="cm-c-card__image" />
       <div class="cm-c-card__head-content">
@@ -15,7 +15,7 @@
           v-if="preparationTime"
           alt="Preparation time"
           :icon="clockIcon"
-          :text="getPreparationTime()"
+          :text="getPreparationTime"
           spacing="medium"
         ></bullet>
         <bullet
@@ -111,9 +111,7 @@ export default {
         return `${this.calories} calories`;
       }
       return `${convertToKilojoules(this.calories)} kj`;
-    }
-  },
-  methods: {
+    },
     getPreparationTime() {
       if (this.preparationTime <= 60) {
         return `${this.preparationTime} min`;

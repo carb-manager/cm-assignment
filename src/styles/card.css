@@ -37,7 +37,6 @@
   overflow: hidden;
   height: var(--card-height);
   background: var(--card-head-background);
-  cursor: pointer;
 }
 
 .cm-c-card__head:hover {
@@ -58,6 +57,20 @@
   left: 0;
   right: 0;
   z-index: -1;
+}
+
+@media (--cm_small_viewport) {
+  .cm-c-card__image {
+    width: 100%;
+    top: -200%;
+  }
+}
+
+@media (--cm_large_viewport) {
+  .cm-c-card__image {
+    width: initial;
+    top: -100%;
+  }
 }
 
 .cm-c-card__head-content {
