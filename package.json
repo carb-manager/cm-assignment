@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test": "yarn test:unit",
     "lint": "vue-cli-service lint",
     "storybook": "start-storybook -p 6006 --ci",
     "build-storybook": "build-storybook"

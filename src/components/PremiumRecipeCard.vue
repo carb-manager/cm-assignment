@@ -13,8 +13,7 @@
       <h2>{{ title }}</h2>
       <!-- Rating -->
       <div>
-        <img alt="Star" src="../assets/star.svg" />
-        200 ratings
+        <star-rating :stars="3" :ratings="200"></star-rating>
       </div>
       <div>
         <div><img alt="Preparation time" src="../assets/clock.svg" />24 min</div>
@@ -32,8 +31,11 @@
 </template>
 
 <script>
+import StarRating from "./StarRating";
+
 export default {
   name: "PremiumRecipeCard",
+  components: { StarRating },
   props: {
     title: String
   }
