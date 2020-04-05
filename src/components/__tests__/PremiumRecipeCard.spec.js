@@ -82,4 +82,22 @@ describe("PremiumRecipeCard", () => {
     // Assert
     getByText("1 hr 1 min");
   });
+
+  it("renders energy in the correct format when setting energy units to kilojules", () => {
+    const title = "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice";
+    const image = "http://foo.com/image.jpg";
+    const calories = 8;
+    const energyUnits = "Kilojules";
+
+    const { getByText } = render(PremiumRecipeCard, {
+      props: {
+        title,
+        image,
+        energyUnits,
+        calories
+      }
+    });
+
+    getByText("33 kj");
+  });
 });
