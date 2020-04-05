@@ -1,0 +1,7 @@
+.cm-u-flex {
+  display: flex;
+}
+
+.cm-u-flex-grow {
+  flex-grow: 1;
+}

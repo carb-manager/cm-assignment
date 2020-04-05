@@ -1,0 +1,9 @@
+.cm-o-bullet {
+  display: flex;
+  margin-right: 0.5rem;
+  align-items: center;
+}
+
+.cm-o-bullet__text {
+  font-size: 0.75rem;
+}

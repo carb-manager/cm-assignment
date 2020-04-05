@@ -1,0 +1,17 @@
+:root {
+  --ratings-color: #1ca677;
+}
+
+.cm-c-star-rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.cm-c-star-rating__ratings {
+  margin-left: 0.5rem;
+  color: var(--ratings-color);
+  font-weight: 500;
+  font-size: 0.875rem;
+  line-height: 14px;
+}

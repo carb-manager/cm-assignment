@@ -7,13 +7,15 @@ describe("Bullet", () => {
     const icon = "http://foo.com/foo/icon.svg";
     const alt = "I am alt text";
     const text = "I am a bullet";
+    const spacing = "medium";
 
     // Act
     const { getByText, getByAltText, getByTestId } = render(Bullet, {
       props: {
         icon,
         alt,
-        text
+        text,
+        spacing
       }
     });
 

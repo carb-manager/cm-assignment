@@ -10,18 +10,39 @@
     <div class="cm-c-card__body">
       <h2>{{ title }}</h2>
       <star-rating :stars="stars" :ratings="ratings"></star-rating>
-      <div>
+      <div class="cm-u-flex">
         <bullet
           v-if="preparationTime"
           alt="Preparation time"
           :icon="clockIcon"
           :text="preparationTime"
+          spacing="medium"
         ></bullet>
-        <bullet v-if="calories" alt="Calories" :icon="calsIcon" :text="calories"></bullet>
+        <bullet
+          v-if="calories"
+          alt="Calories"
+          :icon="calsIcon"
+          :text="calories"
+          spacing="medium"
+        ></bullet>
 
-        <bullet v-if="carbs" alt="20g Carbs" :icon="carbsIcon" :text="carbs"></bullet>
-        <bullet v-if="protein" alt="16g Protein" :icon="proteinIcon" :text="protein"></bullet>
-        <bullet v-if="fats" alt="6g Fats" :icon="fatsIcon" :text="fats"></bullet>
+        <div class="cm-u-flex-grow"></div>
+
+        <bullet
+          v-if="carbs"
+          alt="20g Carbs"
+          :icon="carbsIcon"
+          :text="carbs"
+          spacing="small"
+        ></bullet>
+        <bullet
+          v-if="protein"
+          alt="16g Protein"
+          :icon="proteinIcon"
+          :text="protein"
+          spacing="small"
+        ></bullet>
+        <bullet v-if="fats" alt="6g Fats" :icon="fatsIcon" :text="fats" spacing="small"></bullet>
       </div>
     </div>
   </div>

@@ -1,7 +1,12 @@
 <template>
-  <div>
-    <img data-testid="bullet-image" :alt="alt" :src="icon" />
-    <span>{{ text }}</span>
+  <div class="cm-o-bullet">
+    <img
+      data-testid="bullet-image"
+      :alt="alt"
+      :src="icon"
+      :class="{ 'cm-u-mr-medium': spacing === 'medium', 'cm-u-mr-small': spacing === 'small' }"
+    />
+    <span class="cm-o-bullet__text">{{ text }}</span>
   </div>
 </template>
 
@@ -11,7 +16,8 @@ export default {
   props: {
     icon: String,
     alt: String,
-    text: String
+    text: String,
+    spacing: String
   }
 };
 </script>

@@ -1,5 +1,5 @@
 :root {
-  --badge-primary-background: #b3b4b6;
+  --badge-primary-background: rgba(255, 255, 255, 0.3);
   --badge-primary-color: #fff;
 }
 
@@ -14,6 +14,8 @@
   padding: 0.25rem 0.5rem;
   font-size: 0.75rem;
   letter-spacing: -0.2px;
+  font-weight: 600;
+  line-height: 12px;
 }
 
 .cm-c-premium-badge > img {
