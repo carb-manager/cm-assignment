@@ -17,7 +17,11 @@ export default {
     icon: String,
     alt: String,
     text: String,
-    spacing: String
+    spacing: {
+      required: false,
+      type: String,
+      default: "medium"
+    }
   }
 };
 </script>

@@ -32,31 +32,31 @@ export const KitchenSink = () => ({
       default: () => Image
     },
     preparationTime: {
-      default: () => "24 min"
+      default: () => number("Prep time (mins)", 24)
     },
     calories: {
-      default: () => "489 calories"
+      default: () => number("Calories (kcal)", 489)
     },
     carbs: {
-      default: () => "20g"
+      default: () => number("Carbs (g)", 20)
     },
     protein: {
-      default: () => "16g"
+      default: () => number("Protein (g)", 16)
     },
     fats: {
-      default: () => "6g"
+      default: () => number("Fats (g)", 6)
     },
     ratings: {
-      default: () => 200
+      default: () => number("Ratings", 200, { step: 1 })
     },
     stars: {
       default: () => number("Stars", 3, { step: 0.5 })
     },
     isPremium: {
-      default: () => true
+      default: () => boolean("Premium?", true)
     },
     isHearted: {
-      default: () => boolean("isHearted", false)
+      default: () => boolean("Hearted?", true)
     }
   },
   template: `

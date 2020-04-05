@@ -4,7 +4,7 @@
 }
 
 .cm-c-premium-badge {
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-self: flex-end;
   margin: 0.5rem;

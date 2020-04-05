@@ -26,11 +26,11 @@ describe("PremiumRecipeCard", () => {
   it("renders correctly all props are passed", () => {
     const title = "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice";
     const image = "http://foo.com/image.jpg";
-    const preparationTime = "24 min";
-    const calories = "489 calories";
-    const carbs = "20g";
-    const protein = "16g";
-    const fats = "6g";
+    const preparationTime = 24;
+    const calories = 489;
+    const carbs = 20;
+    const protein = 16;
+    const fats = 6;
     const ratings = 200;
     const stars = 3;
     const isPremium = true;
@@ -55,11 +55,11 @@ describe("PremiumRecipeCard", () => {
     getByText(title);
     getByAltText(title);
     getByAltText("You liked this");
-    getByText(preparationTime);
-    getByText(calories);
-    getByText(carbs);
-    getByText(protein);
-    getByText(fats);
+    getByText(`${preparationTime} min`);
+    getByText(`${calories} calories`);
+    getByText(`${carbs}g`);
+    getByText(`${protein}g`);
+    getByText(`${fats}g`);
     getByText(`${ratings} ratings`);
     getByText("Premium Recipe");
     expect(queryAllByAltText("Filled star")).toHaveLength(3);

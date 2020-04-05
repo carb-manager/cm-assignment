@@ -1,4 +1,4 @@
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import Bullet from "../src/components/Bullet.vue";
 import clock from "../src/assets/clock.svg";
@@ -9,10 +9,18 @@ export default {
   decorators: [withKnobs]
 };
 
+const spacingOptions = {
+  Medium: "medium",
+  Small: "small"
+};
+
 export const Default = () => ({
   components: { Bullet },
   props: {
-    // Add your props here and hook them up to the template below
+    icon: { default: () => clock },
+    alt: { default: () => text("Alt Text", "24 min") },
+    text: { default: () => text("Text", "24 min") },
+    spacing: { default: () => select("Spacing", spacingOptions) }
   },
-  template: `<bullet icon="${clock}" alt="24 min" text="24 min"></bullet>`
+  template: `<bullet :icon="icon" :alt="alt" :text="text" :spacing="spacing"></bullet>`
 });

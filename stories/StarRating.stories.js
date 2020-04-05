@@ -1,4 +1,4 @@
-import { withKnobs } from "@storybook/addon-knobs";
+import { withKnobs, number } from "@storybook/addon-knobs";
 
 import StarRating from "../src/components/StarRating.vue";
 
@@ -12,10 +12,10 @@ export const Default = () => ({
   components: { StarRating },
   props: {
     stars: {
-      default: () => 3
+      default: () => number("Stars", 3, { step: 0.5 })
     },
     ratings: {
-      default: () => 200
+      default: () => number("Ratings", 200, { step: 1 })
     }
   },
   template: '<star-rating :stars="stars" :ratings="ratings"></star-rating>'

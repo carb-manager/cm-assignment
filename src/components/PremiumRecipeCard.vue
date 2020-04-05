@@ -15,14 +15,14 @@
           v-if="preparationTime"
           alt="Preparation time"
           :icon="clockIcon"
-          :text="preparationTime"
+          :text="`${preparationTime} min`"
           spacing="medium"
         ></bullet>
         <bullet
           v-if="calories"
           alt="Calories"
           :icon="calsIcon"
-          :text="calories"
+          :text="`${calories} calories`"
           spacing="medium"
         ></bullet>
 
@@ -32,17 +32,23 @@
           v-if="carbs"
           alt="20g Carbs"
           :icon="carbsIcon"
-          :text="carbs"
+          :text="`${carbs}g`"
           spacing="small"
         ></bullet>
         <bullet
           v-if="protein"
           alt="16g Protein"
           :icon="proteinIcon"
-          :text="protein"
+          :text="`${protein}g`"
           spacing="small"
         ></bullet>
-        <bullet v-if="fats" alt="6g Fats" :icon="fatsIcon" :text="fats" spacing="small"></bullet>
+        <bullet
+          v-if="fats"
+          alt="6g Fats"
+          :icon="fatsIcon"
+          :text="`${fats}g`"
+          spacing="small"
+        ></bullet>
       </div>
     </div>
   </div>
@@ -66,11 +72,11 @@ export default {
   props: {
     image: String,
     title: String,
-    preparationTime: String,
-    calories: String,
-    carbs: String,
-    protein: String,
-    fats: String,
+    preparationTime: Number,
+    calories: Number,
+    carbs: Number,
+    protein: Number,
+    fats: Number,
     ratings: {
       type: Number,
       required: false,

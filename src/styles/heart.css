@@ -1,5 +1,5 @@
 .cm-c-heart {
   align-self: flex-start;
-  margin: 1rem;
+  margin: 1rem 1rem 1rem auto;
   cursor: pointer;
 }
