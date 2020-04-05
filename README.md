@@ -89,3 +89,43 @@ yarn storybook
 ```
 yarn test:unit
 ```
+
+## Notes from Jon
+
+Finished application;
+
+![The finished application](.github/screenshot.png)
+
+### RecipeOfTheDay
+
+Unfortunately I ran out of time and didn't build the `RecipeOfTheDay` component. I focused on building solid foundations rather than rushing to get everything done on time.
+
+The component should be straightforward to build, with minimal alterations;
+
+1.  Create a new presentation component, `RecipeOfTheDay`
+2.  'Recipe of the day' sub-title needs a style adding, no need for a new component here
+3.  Styles exist already for the recipe title. Only the `font-color` needs changing.
+4.  A minor change is required for the `StarRating` component to only show the ratings when provided
+5.  No changes required for the preparation time/calories
+6.  No changes required for the macro-nutrient bullets
+7.  The `PremiumBadge` could be altered to make it more generic and make the icon optional
+8.  The card should be fine without a body, no changes needed here (put everything in the head)
+
+That should be all that is required to build this component.
+
+### Reflections
+
+1. I have tried to get as close as possible to the Figma designs. I think I am about 95% of the way there now. I developed using a mobile first approach, with a couple of overrides for larger screen resolutions. Mobile responsiveness is generally working well. I added PostCSS for improved cross browser compatibility and stayed as close to the CSS standard as resonably possible.
+2. I used tests to drive the code, from an outside-in (the users) perspective. I didn't concern myself with test coverage, but instead focused on testing the code in a resonable way. I first ran the coverage report whilst writing this README, and found test coverage was well over 96%. I added 1 additional test to get to 100% coverage because the test was valuable.
+3. I spent a lot of time developing Storybook stories because I find these incredibly effective when communicating with non-technical project stakeholders and often find it easy to get buy-in when demoing in this manner. I put all component parameters on flags (knobs) to aid interaction. I didn't call `yarn serve` until all development was completed within Storybook. Only minor tweaks were required to get everything working properly.
+4. I followed the ITCSS pattern when structuring my CSS and didn't use any local/scope component styles. Not because I don't like them, but because I didn't have much use for them. I prefer to keep local/scoped styles for specific use-cases when the resulting CSS wouldn't need to be re-used elsewhere.
+5. My tests are written using [Vue Testing Library](https://testing-library.com/docs/vue-testing-library/intro). These tests are closer to integration tests than unit tests. I don't test the state of the component, only what gets rendered in the browser when state changes (the end result). The exception is the `conversion` code (converting calories to kilojoules). The tests are written as unit tests because this is critical business logic and needs to be accurate.
+6. I tried to follow the container/presentation pattern. The heart of the application is `PremiumRecipeCard`, which orchestrates the data and passes it down for presentation, importing helper functions as required.
+
+### What Jon should have mentioned at the interview
+
+1. Huge Keto fan. Was Keto for 3 years. Quit because of complicated reasons that I could discuss in more detail.
+2. Once started own Keto blog (KetogenicFamily). Source code is on [Github](https://github.com/jpreecedev/ketogenicfamily/).
+3. Knowledgable of Firebase Auth, Firestore, and Messaging, and Functions (Also see [Github](https://github.com/jpreecedev/outsideir35jobs/blob/master/src/app/jobs.service.ts))
+
+Thank you.
