@@ -1,11 +1,11 @@
 <template>
   <div class="recipe-duration">
-    <ClockIcon class="clock-icon" v-if="showIcon" />
+    <Clock class="clock-icon" v-if="showIcon" />
     {{durations}}
   </div>
 </template>
 <script>
-import ClockIcon from "../../assets/clock.svg";
+import Clock from "../../assets/clock.svg";
 
 export default {
   name: "Durations",
@@ -20,7 +20,7 @@ export default {
     }
   },
   components: {
-    ClockIcon
+    Clock
   },
   computed: {
     durations() {

@@ -1,6 +1,6 @@
 <template>
   <div class="energy-units">
-    <Icon class="calories-icon" v-if="showIcon" />
+    <Icon class="calories-icon" v-if="showedIcon" />
     {{energyValue}} {{energyUnits}}
   </div>
 </template>
@@ -9,7 +9,7 @@
 import Icon from "../../assets/cals.svg";
 
 export default {
-  name: "EnergyUnits",
+  name: "Energy",
   components: {
     Icon
   },
