@@ -1,19 +1,24 @@
 <template>
   <div>
     <div>
-      <img />
-      <premium-badge></premium-badge>
+      <img :alt="title" />
+      <premium-badge v-if="isPremium"></premium-badge>
     </div>
     <div>
       <h2>{{ title }}</h2>
-      <star-rating :stars="3" :ratings="200"></star-rating>
+      <star-rating :stars="stars" :ratings="ratings"></star-rating>
       <div>
-        <bullet alt="Preparation time" :icon="clockIcon" text="24 min"></bullet>
-        <bullet alt="Calories" :icon="calsIcon" text="489 calories"></bullet>
+        <bullet
+          v-if="preparationTime"
+          alt="Preparation time"
+          :icon="clockIcon"
+          :text="preparationTime"
+        ></bullet>
+        <bullet v-if="calories" alt="Calories" :icon="calsIcon" :text="calories"></bullet>
 
-        <bullet alt="20g Carbs" :icon="carbsIcon" text="20g"></bullet>
-        <bullet alt="16g Protein" :icon="proteinIcon" text="16g"></bullet>
-        <bullet alt="6g Fats" :icon="fatsIcon" text="6g"></bullet>
+        <bullet v-if="carbs" alt="20g Carbs" :icon="carbsIcon" :text="carbs"></bullet>
+        <bullet v-if="protein" alt="16g Protein" :icon="proteinIcon" :text="protein"></bullet>
+        <bullet v-if="fats" alt="6g Fats" :icon="fatsIcon" :text="fats"></bullet>
       </div>
     </div>
   </div>
@@ -34,7 +39,27 @@ export default {
   name: "premium-recipe-card",
   components: { StarRating, PremiumBadge, Bullet },
   props: {
-    title: String
+    title: String,
+    preparationTime: String,
+    calories: String,
+    carbs: String,
+    protein: String,
+    fats: String,
+    ratings: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    stars: {
+      type: Number,
+      required: false,
+      default: 0
+    },
+    isPremium: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   data() {
     return {

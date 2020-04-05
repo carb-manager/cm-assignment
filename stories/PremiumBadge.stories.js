@@ -1,4 +1,3 @@
-import { action } from "@storybook/addon-actions";
 import { withKnobs } from "@storybook/addon-knobs";
 
 import PremiumBadge from "../src/components/PremiumBadge.vue";
@@ -14,6 +13,5 @@ export const Default = () => ({
   props: {
     // Add your props here and hook them up to the template below
   },
-  template: '<PremiumBadge @click="action" />',
-  methods: { action: action("clicked") }
+  template: "<premium-badge></premium-badge>"
 });

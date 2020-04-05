@@ -10,5 +10,13 @@ export default {
 
 export const Default = () => ({
   components: { StarRating },
-  template: '<StarRating stars="3" ratings="200" />'
+  props: {
+    stars: {
+      default: () => 3
+    },
+    ratings: {
+      default: () => 200
+    }
+  },
+  template: '<star-rating :stars="stars" :ratings="ratings"></star-rating>'
 });
