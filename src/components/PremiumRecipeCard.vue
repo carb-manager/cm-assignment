@@ -3,6 +3,7 @@
     <div>
       <img :alt="title" />
       <premium-badge v-if="isPremium"></premium-badge>
+      <heart :isHearted="isHearted"></heart>
     </div>
     <div>
       <h2>{{ title }}</h2>
@@ -28,6 +29,7 @@
 import StarRating from "./StarRating";
 import PremiumBadge from "./PremiumBadge";
 import Bullet from "./Bullet";
+import Heart from "./Heart";
 
 import clockIcon from "../assets/clock.svg";
 import calsIcon from "../assets/cals.svg";
@@ -37,7 +39,7 @@ import fatsIcon from "../assets/dot-fats.svg";
 
 export default {
   name: "premium-recipe-card",
-  components: { StarRating, PremiumBadge, Bullet },
+  components: { StarRating, PremiumBadge, Bullet, Heart },
   props: {
     title: String,
     preparationTime: String,
@@ -56,6 +58,11 @@ export default {
       default: 0
     },
     isPremium: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    isHearted: {
       type: Boolean,
       required: false,
       default: false

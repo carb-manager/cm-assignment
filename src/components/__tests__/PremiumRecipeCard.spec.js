@@ -16,6 +16,7 @@ describe("PremiumRecipeCard", () => {
     // Assert
     getByText(title);
     getByAltText(title);
+    getByAltText("Like this");
     getByText("0 ratings");
     expect(queryAllByAltText("Unfilled star")).toHaveLength(5);
   });
@@ -30,6 +31,7 @@ describe("PremiumRecipeCard", () => {
     const ratings = 200;
     const stars = 3;
     const isPremium = true;
+    const isHearted = true;
 
     const { getByText, getByAltText, queryAllByAltText } = render(PremiumRecipeCard, {
       props: {
@@ -41,12 +43,14 @@ describe("PremiumRecipeCard", () => {
         fats,
         ratings,
         stars,
-        isPremium
+        isPremium,
+        isHearted
       }
     });
 
     getByText(title);
     getByAltText(title);
+    getByAltText("You liked this");
     getByText(preparationTime);
     getByText(calories);
     getByText(carbs);
