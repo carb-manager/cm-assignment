@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "MacroDots",
+  name: "Macros",
   props: {
     carbs: {
       type: Number,
