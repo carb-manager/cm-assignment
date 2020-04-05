@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="cm-c-card__body">
-      <h2>{{ title }}</h2>
+      <h2 class="cm-c-card__title">{{ title }}</h2>
       <star-rating :stars="stars" :ratings="ratings"></star-rating>
       <div class="cm-u-flex">
         <bullet

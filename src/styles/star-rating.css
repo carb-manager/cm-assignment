@@ -8,6 +8,10 @@
   margin-bottom: 0.5rem;
 }
 
+.cm-c-star-rating__inner {
+  display: flex;
+}
+
 .cm-c-star-rating__ratings {
   margin-left: 0.5rem;
   color: var(--ratings-color);
