@@ -10,7 +10,7 @@
     </div>
     <div>
       <!-- Body -->
-      <h2>Low Carb Thai Chicken Curry With Coconut Cauliflower Rice</h2>
+      <h2>{{ title }}</h2>
       <!-- Rating -->
       <div>
         <img alt="Star" src="../assets/star.svg" />
@@ -30,3 +30,12 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "PremiumRecipeCard",
+  props: {
+    title: String
+  }
+};
+</script>
