@@ -1,6 +1,6 @@
 <template>
   <div class="durations">
-    <Clock class="clock-icon" v-if="showedIcon" />
+    <Clock class="clock-icon" v-if="isShowedIcon" />
     {{durations}}
   </div>
 </template>
@@ -14,7 +14,7 @@ export default {
       type: Number,
       default: 0
     },
-    showedIcon: {
+    isShowedIcon: {
       type: Boolean,
       default: true
     }

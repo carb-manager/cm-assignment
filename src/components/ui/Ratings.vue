@@ -1,6 +1,6 @@
 <template>
   <div class="ratings">
-    <div v-if="showRatingsCount" class="ratings-count">
+    <div v-if="isShowed" class="ratings-count">
       {{ ratingsCount }} rating
       <span v-if="ratingsCount != 1">s</span>
     </div>
@@ -19,7 +19,7 @@ export default {
       type: Number,
       default: 1
     },
-    showRatingsCount: {
+    isShowed: {
       type: Boolean,
       default: false
     }
