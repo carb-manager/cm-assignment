@@ -1,20 +1,15 @@
 <template>
   <div class="card" @click="$emit('click')">
-    <div class="image" :style="recipeImageStyle">
+    <div class="image-top" :style="recipeImageStyle">
+      <div class="overlay"></div>
       <MealIcon v-if="!imageUrl" class="meal-icon" />
-      <div class="image-overlay"></div>
       <Favorite v-bind:isFavorited="isFavorited" />
       <Badge v-bind:isPremium="isPremium" />
     </div>
-    <div class="contents">
+    <div class="contents-bottom">
       <h3 class="title">{{ title }}</h3>
-      <Ratings
-        class="star-rating"
-        v-bind:rating="rating"
-        v-bind:ratings-count="ratingsCount"
-        v-bind:show-ratings-count="true"
-      />
-      <div class="contents">
+      <Ratings v-bind:rating="rating" v-bind:ratingsCount="ratingsCount" v-bind:isShowed="true" />
+      <div class="details">
         <Durations v-bind:minutes="durationsInMinutes" />
         <Energy v-bind:value="energyValue" v-bind:unit="Energy" />
         <Macros v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" />
