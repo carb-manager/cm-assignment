@@ -1,6 +1,7 @@
 import { withKnobs } from "@storybook/addon-knobs";
 
 import PremiumRecipeCard from "../src/components/PremiumRecipeCard.vue";
+import Image from "../src/assets/lowcarbthaichickencurry.jpeg";
 
 export default {
   title: "Premium Recipe Card",
@@ -13,9 +14,12 @@ export const Empty = () => ({
   props: {
     title: {
       default: () => "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
+    },
+    image: {
+      default: () => Image
     }
   },
-  template: '<premium-recipe-card :title="title"></premium-recipe-card>'
+  template: '<premium-recipe-card :title="title" :image="image"></premium-recipe-card>'
 });
 
 export const KitchenSink = () => ({
@@ -23,6 +27,9 @@ export const KitchenSink = () => ({
   props: {
     title: {
       default: () => "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice"
+    },
+    image: {
+      default: () => Image
     },
     preparationTime: {
       default: () => "24 min"
@@ -51,6 +58,7 @@ export const KitchenSink = () => ({
   },
   template: `
   <premium-recipe-card :title="title"
+    :image="image"
     :preparationTime="preparationTime"
     :calories="calories"
     :carbs="carbs"

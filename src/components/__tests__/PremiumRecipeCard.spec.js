@@ -5,11 +5,13 @@ describe("PremiumRecipeCard", () => {
   it("renders correctly when only required props are passed", () => {
     // Arrange
     const title = "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice";
+    const image = "http://foo.com/image.jpg";
 
     // Act
     const { getByText, getByAltText, queryAllByAltText } = render(PremiumRecipeCard, {
       props: {
-        title
+        title,
+        image
       }
     });
 
@@ -23,6 +25,7 @@ describe("PremiumRecipeCard", () => {
 
   it("renders correctly all props are passed", () => {
     const title = "Low Carb Thai Chicken Curry With Coconut Cauliflower Rice";
+    const image = "http://foo.com/image.jpg";
     const preparationTime = "24 min";
     const calories = "489 calories";
     const carbs = "20g";
@@ -36,6 +39,7 @@ describe("PremiumRecipeCard", () => {
     const { getByText, getByAltText, queryAllByAltText } = render(PremiumRecipeCard, {
       props: {
         title,
+        image,
         preparationTime,
         calories,
         carbs,

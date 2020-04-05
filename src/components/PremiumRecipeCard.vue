@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="cm-c-card">
     <div>
-      <img :alt="title" />
+      <img :alt="title" :src="image" />
       <premium-badge v-if="isPremium"></premium-badge>
       <heart :isHearted="isHearted"></heart>
     </div>
@@ -41,6 +41,7 @@ export default {
   name: "premium-recipe-card",
   components: { StarRating, PremiumBadge, Bullet, Heart },
   props: {
+    image: String,
     title: String,
     preparationTime: String,
     calories: String,
