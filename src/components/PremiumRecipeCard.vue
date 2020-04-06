@@ -2,7 +2,9 @@
   <div class="card" @click="$emit('click')">
     <div class="overlay"></div>
     <div class="header">
-      <div class="food-picture"><img src="../assets/thai-chicken-curry.svg" /></div>
+      <div class="food-picture">
+        <img v-bind:src="this.getImageUrl(pictureFileName)" />
+      </div>
       <Favorite v-bind:isFavorite="isFavorite" />
       <div class="badge">
         <img src="../assets/trophy.svg" class="trophy-icon" />
@@ -57,7 +59,7 @@ export default {
       type: Boolean,
       default: false
     },
-    foodPicture: {
+    pictureFileName: {
       type: String,
       default: ""
     },
@@ -68,7 +70,12 @@ export default {
     energyValue: Number,
     energyUnit: String
   },
-  computed: {}
+  computed: {},
+  methods: {
+    getImageUrl(fileName) {
+      return require("../assets/" + fileName);
+    }
+  }
 };
 </script>
 
