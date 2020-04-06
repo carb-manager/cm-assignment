@@ -1,6 +1,6 @@
 <template>
   <div class="energy">
-    <img class="icon" src="../../assets/energy.svg" v-if="isShowedIcon" />
+    <img class="icon" src="../../assets/energy.svg" v-if="showedIcon" />
     <span class="value">{{energyValue}}</span>
     <span class="units">{{energyUnits}}</span>
   </div>
@@ -20,7 +20,7 @@ export default {
       type: String,
       default: "Calories"
     },
-    isShowedIcon: {
+    showedIcon: {
       type: Boolean,
       default: true
     }

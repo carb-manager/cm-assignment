@@ -1,6 +1,6 @@
 <template>
   <div class="durations">
-    <img class="icon" src="../../assets/clock.svg" v-if="isShowedIcon" />
+    <img class="icon" src="../../assets/clock.svg" v-if="showedIcon" />
     <span v-text="durations" class="time"></span>
   </div>
 </template>
@@ -15,7 +15,7 @@ export default {
       type: Number,
       default: 0
     },
-    isShowedIcon: {
+    showedIcon: {
       type: Boolean,
       default: true
     }
