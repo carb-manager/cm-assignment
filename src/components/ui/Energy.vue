@@ -33,7 +33,7 @@ export default {
     },
     energyUnits() {
       return ["kj", "kilojoule", "kilojoules"].indexOf(
-        this.unit.toLowerCase()
+        this.units.toLowerCase()
       ) > -1
         ? "kJ"
         : "Calories";
