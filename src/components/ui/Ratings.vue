@@ -1,8 +1,20 @@
 <template>
   <div class="ratings">
-    <div v-if="isShowed" class="ratings-count">
-      {{ ratingsCount }} rating
-      <span v-if="ratingsCount != 1">s</span>
+    <div class="stars">
+      <span class="star-gold" v-for="index in Math.floor(starsCount)" :key="'goldstar'+index">
+        <img v-bind:src="getImgUrl('full-filled-star.svg')" />
+      </span>
+      <span class="star-half" v-if="starsCount % 1 != 0">
+        <img v-bind:src="getImgUrl('half-filled-star.svg')" />
+      </span>
+      <span class="star-grey" v-for="index in 5-Math.round(starsCount)" :key="'greystar'+index">
+        <img v-bind:src="getImgUrl('empty-star.svg')" />
+      </span>
+    </div>
+    <div v-if="showedRatingsCount" class="ratings-count">
+      <span class="number">{{ratingsCount}}</span>
+      <span v-if="ratingsCount <= 1">rating</span>
+      <span v-if="ratingsCount > 1">ratings</span>
     </div>
   </div>
 </template>
@@ -19,7 +31,7 @@ export default {
       type: Number,
       default: 1
     },
-    isShowed: {
+    showedRatingsCount: {
       type: Boolean,
       default: false
     }
@@ -29,6 +41,31 @@ export default {
       let rating = Math.min(Math.max(parseFloat(this.rating), 0), 5);
       return Math.round(rating * 2) / 2;
     }
+  },
+  methods: {
+    getImgUrl(fileName) {
+      return require("../../assets/" + fileName);
+    }
   }
 };
 </script>
+
+<style scoped>
+.ratings {
+  display: flex;
+  margin: 5px 0;
+}
+
+.ratings .stars {
+  margin-right: 5px;
+}
+
+.ratings .stars img {
+  width: 12px;
+  height: 12px;
+}
+
+.ratings .ratings-count {
+  color: #24a97c;
+}
+</style>
