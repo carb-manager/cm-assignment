@@ -1,7 +1,8 @@
 <template>
   <div class="energy">
     <img class="icon" src="../../assets/energy.svg" v-if="isShowedIcon" />
-    <span class="label">{{energyValue}} {{energyUnits}}</span>
+    <span class="value">{{energyValue}}</span>
+    <span class="units">{{energyUnits}}</span>
   </div>
 </template>
 
@@ -54,5 +55,9 @@ export default {
   height: 18px;
   margin-top: -2px;
   margin-right: 6px;
+}
+
+.energy .value {
+  margin-right: 3px;
 }
 </style>
