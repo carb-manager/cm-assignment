@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { getDurations } from "../../utils";
+
 export default {
   name: "Durations",
   props: {
@@ -20,11 +22,7 @@ export default {
   },
   computed: {
     durations() {
-      let hours = Math.floor(this.minutes / 60);
-      let minutes = this.minutes % 60;
-      let durations = hours > 0 ? `${hours}h ` : ``;
-      durations += minutes > 0 ? `${minutes}m ` : ``;
-      return durations;
+      return getDurations(this.minutes);
     }
   },
   methods: {
@@ -38,7 +36,6 @@ export default {
 <style scoped>
 .durations {
   display: flex;
-  margin-right: 30px;
 }
 
 .durations .time {

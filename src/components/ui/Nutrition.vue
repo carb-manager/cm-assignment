@@ -2,15 +2,15 @@
   <div class="nutrition">
     <div class="carbs">
       <img class="dot" v-bind:src="getImgUrl('carbs-dot.svg')" />
-      {{carbs}}g
+      <span>{{carbs}}g</span>
     </div>
     <div class="protein">
       <img class="dot" v-bind:src="getImgUrl('protein-dot.svg')" />
-      {{protein}}g
+      <span>{{protein}}g</span>
     </div>
     <div class="fats">
       <img class="dot" v-bind:src="getImgUrl('fats-dot.svg')" />
-      {{fats}}g
+      <span>{{fats}}g</span>
     </div>
   </div>
 </template>
@@ -47,7 +47,8 @@ export default {
 }
 
 .nutrition .carbs,
-.nutrition .protein {
-  margin-right: 12px;
+.nutrition .protein,
+.nutrition .fats {
+  width: 41px;
 }
 </style>

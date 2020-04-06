@@ -6,6 +6,8 @@
 </template>
 
 <script>
+import { caloriesToKiloJoules } from "../../utils";
+
 export default {
   name: "Energy",
   props: {
@@ -24,7 +26,11 @@ export default {
   },
   computed: {
     energyValue() {
-      return this.units === "kJ" ? Math.round(4.184 * this.value) : this.value;
+      return ["kj", "kilojoule", "kilojoules"].indexOf(
+        this.units.toLowerCase()
+      ) > -1
+        ? caloriesToKiloJoules(this.value)
+        : this.value;
     },
     energyUnits() {
       return ["kj", "kilojoule", "kilojoules"].indexOf(
@@ -45,7 +51,6 @@ export default {
 <style scoped>
 .energy {
   display: flex;
-  margin-right: 54px;
   font-size: 12px;
 }
 

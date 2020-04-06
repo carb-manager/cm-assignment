@@ -200,4 +200,17 @@ export default {
   flex-wrap: wrap;
   flex-direction: row;
 }
+
+.card .body .details .durations {
+  width: 100px;
+  text-overflow: ellipsis;
+}
+
+.card .body .details .energy {
+  width: 116px;
+  text-overflow: ellipsis;
+}
+
+.card .body .details .nutrition {
+}
 </style>
