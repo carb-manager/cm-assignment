@@ -67,5 +67,9 @@ export default {
 
 .ratings .ratings-count {
   color: #24a97c;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 14px;
 }
 </style>

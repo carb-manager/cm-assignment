@@ -1,18 +1,13 @@
 <template>
-  <div class="energy-units">
-    <Icon class="calories-icon" v-if="showedIcon" />
+  <div class="energy">
+    <img class="icon" v-bind:src="getImgUrl('energy.svg')" v-if="isShowedIcon" />
     {{energyValue}} {{energyUnits}}
   </div>
 </template>
 
 <script>
-import Icon from "../../assets/cals.svg";
-
 export default {
   name: "Energy",
-  components: {
-    Icon
-  },
   props: {
     value: {
       type: Number,
@@ -22,7 +17,7 @@ export default {
       type: String,
       default: "Calories"
     },
-    showedIcon: {
+    isShowedIcon: {
       type: Boolean,
       default: true
     }
@@ -39,6 +34,26 @@ export default {
         : "Calories";
     }
   },
-  methods: {}
+  methods: {
+    getImgUrl(fileName) {
+      return require("../../assets/" + fileName);
+    }
+  }
 };
-</script>s
+</script>
+
+<style scoped>
+.energy {
+  display: flex;
+  margin-right: 90px;
+  font-family: Proxima Nova;
+  font-size: 12px;
+}
+
+.energy .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: -2px;
+  margin-right: 8px;
+}
+</style>

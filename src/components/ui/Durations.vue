@@ -1,12 +1,11 @@
 <template>
   <div class="durations">
-    <Clock class="clock-icon" v-if="isShowedIcon" />
-    {{durations}}
+    <img class="icon" v-bind:src="getImgUrl('clock.svg')" v-if="isShowedIcon" />
+    <span v-text="durations" class="time"></span>
   </div>
 </template>
-<script>
-import Clock from "../../assets/clock.svg";
 
+<script>
 export default {
   name: "Durations",
   props: {
@@ -19,9 +18,6 @@ export default {
       default: true
     }
   },
-  components: {
-    Clock
-  },
   computed: {
     durations() {
       let hours = Math.floor(this.minutes / 60);
@@ -30,6 +26,30 @@ export default {
       durations += minutes > 0 ? `${minutes}m ` : ``;
       return durations;
     }
+  },
+  methods: {
+    getImgUrl(fileName) {
+      return require("../../assets/" + fileName);
+    }
   }
 };
 </script>
+
+<style scoped>
+.durations {
+  display: flex;
+  margin-right: 30px;
+}
+
+.durations .time {
+  font-family: Proxima Nova;
+  font-size: 12px;
+}
+
+.durations .icon {
+  width: 18px;
+  height: 18px;
+  margin-top: -2px;
+  margin-right: 6px;
+}
+</style>

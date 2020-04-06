@@ -19,17 +19,17 @@
         v-bind:showedRatingsCount="true"
       />
       <div class="break" />
-      <div class="nutrition">
+      <div class="details">
         <Durations v-bind:minutes="durationsInMinutes" />
         <Energy v-bind:value="energyValue" v-bind:units="energyUnit" />
-        <Macros v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" />
+        <Nutrition v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import Macros from "./ui/Macros.vue";
+import Nutrition from "./ui/Nutrition.vue";
 import Ratings from "./ui/Ratings.vue";
 import Energy from "./ui/Energy.vue";
 import Durations from "./ui/Durations.vue";
@@ -38,7 +38,7 @@ import Favorite from "./ui/Favorite.vue";
 export default {
   name: "PremiumRecipeCard",
   components: {
-    Macros,
+    Nutrition,
     Ratings,
     Energy,
     Durations,
@@ -166,6 +166,7 @@ export default {
   font-size: 12px;
   flex-wrap: wrap;
   padding: 15px;
+  background: #ffffff;
 }
 
 .card .body .break {
@@ -183,28 +184,15 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  font-family: Proxima Nova;
+  font-style: normal;
+  font-weight: bold;
+  color: #0c0c0a;
 }
 
-.card .body .nutrition {
+.card .body .details {
   display: flex;
-  margin: 5px 0;
-}
-
-.meal-icon {
-  width: 80px;
-  opacity: 0.2;
-  display: block;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.recipe-meta > div:first-child {
-  margin-right: 20px;
-}
-
-.recipe-meta > div:last-child {
-  margin-left: auto;
+  flex-wrap: wrap;
+  flex-direction: row;
 }
 </style>
