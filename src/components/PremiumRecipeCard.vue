@@ -11,7 +11,7 @@
       <Ratings v-bind:rating="rating" v-bind:ratingsCount="ratingsCount" v-bind:isShowed="true" />
       <div class="details">
         <Durations v-bind:minutes="durationsInMinutes" />
-        <Energy v-bind:value="energyValue" v-bind:unit="Energy" />
+        <Energy v-bind:value="energyValue" v-bind:units="energyUnit" />
         <Macros v-bind:carbs="carbs" v-bind:protein="protein" v-bind:fats="fats" />
       </div>
     </div>
@@ -20,6 +20,7 @@
 
 <script>
 import Macros from "./ui/Macros.vue";
+import Badge from "./ui/Badge.vue";
 import Ratings from "./ui/Ratings.vue";
 import Energy from "./ui/Energy.vue";
 import Durations from "./ui/Durations.vue";
@@ -34,7 +35,8 @@ export default {
     Energy,
     Durations,
     Favorite,
-    MealIcon
+    MealIcon,
+    Badge
   },
   props: {
     title: {
@@ -60,7 +62,7 @@ export default {
     fats: Number,
     durationsInMinutes: Number,
     energyValue: Number,
-    Energy: String
+    energyUnit: String
   },
   computed: {
     recipeImageStyle() {
