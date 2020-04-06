@@ -2,13 +2,13 @@
   <div class="ratings">
     <div class="stars">
       <span class="star-gold" v-for="index in Math.floor(starsCount)" :key="'goldstar'+index">
-        <img v-bind:src="getImgUrl('full-filled-star.svg')" />
+        <img src="../../assets/full-filled-star.svg" />
       </span>
       <span class="star-half" v-if="starsCount % 1 != 0">
-        <img v-bind:src="getImgUrl('half-filled-star.svg')" />
+        <img src="../../assets/half-filled-star.svg" />
       </span>
       <span class="star-grey" v-for="index in 5-Math.round(starsCount)" :key="'greystar'+index">
-        <img v-bind:src="getImgUrl('empty-star.svg')" />
+        <img src="../../assets/empty-star.svg" />
       </span>
     </div>
     <div v-if="showedRatingsCount" class="ratings-count">
@@ -40,11 +40,6 @@ export default {
     starsCount() {
       let rating = Math.min(Math.max(parseFloat(this.rating), 0), 5);
       return Math.round(rating * 2) / 2;
-    }
-  },
-  methods: {
-    getImgUrl(fileName) {
-      return require("../../assets/" + fileName);
     }
   }
 };

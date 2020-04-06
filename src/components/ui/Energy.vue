@@ -1,6 +1,6 @@
 <template>
   <div class="energy">
-    <img class="icon" v-bind:src="getImgUrl('energy.svg')" v-if="isShowedIcon" />
+    <img class="icon" src="../../assets/energy.svg" v-if="isShowedIcon" />
     <span class="label">{{energyValue}} {{energyUnits}}</span>
   </div>
 </template>
@@ -38,11 +38,6 @@ export default {
       ) > -1
         ? "kJ"
         : "Calories";
-    }
-  },
-  methods: {
-    getImgUrl(fileName) {
-      return require("../../assets/" + fileName);
     }
   }
 };

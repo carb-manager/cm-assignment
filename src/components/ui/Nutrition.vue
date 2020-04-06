@@ -1,15 +1,15 @@
 <template>
   <div class="nutrition">
     <div class="carbs">
-      <img class="dot" v-bind:src="getImgUrl('carbs-dot.svg')" />
+      <img class="dot" src="../../assets/carbs-dot.svg" />
       <span>{{carbs}}g</span>
     </div>
     <div class="protein">
-      <img class="dot" v-bind:src="getImgUrl('protein-dot.svg')" />
+      <img class="dot" src="../../assets/protein-dot.svg" />
       <span>{{protein}}g</span>
     </div>
     <div class="fats">
-      <img class="dot" v-bind:src="getImgUrl('fats-dot.svg')" />
+      <img class="dot" src="../../assets/fats-dot.svg" />
       <span>{{fats}}g</span>
     </div>
   </div>
@@ -30,11 +30,6 @@ export default {
     fats: {
       type: Number,
       default: 0
-    }
-  },
-  methods: {
-    getImgUrl(fileName) {
-      return require("../../assets/" + fileName);
     }
   }
 };

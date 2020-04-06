@@ -2,12 +2,10 @@
   <div class="card" @click="$emit('click')">
     <div class="overlay"></div>
     <div class="header">
-      <div class="food-picture">
-        <img v-bind:src="this.getImgUrl(foodPicture)" />
-      </div>
+      <div class="food-picture"><img src="../assets/thai-chicken-curry.svg" /></div>
       <Favorite v-bind:isFavorite="isFavorite" />
       <div class="badge">
-        <img v-bind:src="this.getImgUrl('trophy.svg')" class="trophy-icon" />
+        <img src="../assets/trophy.svg" class="trophy-icon" />
         <span class="title">Premium Recipe</span>
       </div>
     </div>
@@ -70,12 +68,7 @@ export default {
     energyValue: Number,
     energyUnit: String
   },
-  computed: {},
-  methods: {
-    getImgUrl(fileName) {
-      return require("../assets/" + fileName);
-    }
-  }
+  computed: {}
 };
 </script>
 
@@ -207,10 +200,7 @@ export default {
 }
 
 .card .body .details .energy {
-  width: 116px;
+  width: 113px;
   text-overflow: ellipsis;
-}
-
-.card .body .details .nutrition {
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="durations">
-    <img class="icon" v-bind:src="getImgUrl('clock.svg')" v-if="isShowedIcon" />
+    <img class="icon" src="../../assets/clock.svg" v-if="isShowedIcon" />
     <span v-text="durations" class="time"></span>
   </div>
 </template>
@@ -23,11 +23,6 @@ export default {
   computed: {
     durations() {
       return getDurations(this.minutes);
-    }
-  },
-  methods: {
-    getImgUrl(fileName) {
-      return require("../../assets/" + fileName);
     }
   }
 };
