@@ -33,7 +33,7 @@ export default {
     },
     showedRatingsCount: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   computed: {
