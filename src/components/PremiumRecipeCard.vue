@@ -1,12 +1,16 @@
 <template>
   <div class="card" @click="$emit('click')">
-    <div class="image-top" :style="recipeImageStyle">
+    <div class="top">
+      <div class="food-picture">
+        <img v-bind:src="this.getImgUrl(foodPicture)" />
+      </div>
+      <Favorite v-bind:isFavorite="isFavorite" />
+      <div class="badge" v-if="isPremium">
+        <img v-bind:src="this.getImgUrl('trophy.svg')" class="trophy-icon" />Premium Recipe
+      </div>
       <div class="overlay"></div>
-      <MealIcon v-if="!imageUrl" class="meal-icon" />
-      <Favorite v-bind:isFavorited="isFavorited" />
-      <Badge v-bind:isPremium="isPremium" />
     </div>
-    <div class="contents-bottom">
+    <div class="bottom">
       <h3 class="title">{{ title }}</h3>
       <Ratings v-bind:rating="rating" v-bind:ratingsCount="ratingsCount" v-bind:isShowed="true" />
       <div class="details">
@@ -20,12 +24,10 @@
 
 <script>
 import Macros from "./ui/Macros.vue";
-import Badge from "./ui/Badge.vue";
 import Ratings from "./ui/Ratings.vue";
 import Energy from "./ui/Energy.vue";
 import Durations from "./ui/Durations.vue";
 import Favorite from "./ui/Favorite.vue";
-import MealIcon from "../assets/meal.svg";
 
 export default {
   name: "PremiumRecipeCard",
@@ -34,9 +36,7 @@ export default {
     Ratings,
     Energy,
     Durations,
-    Favorite,
-    MealIcon,
-    Badge
+    Favorite
   },
   props: {
     title: {
@@ -45,7 +45,7 @@ export default {
     },
     rating: Number,
     ratingsCount: Number,
-    isFavorited: {
+    isFavorite: {
       type: Boolean,
       default: false
     },
@@ -53,7 +53,7 @@ export default {
       type: Boolean,
       default: false
     },
-    imageUrl: {
+    foodPicture: {
       type: String,
       default: ""
     },
@@ -64,13 +64,11 @@ export default {
     energyValue: Number,
     energyUnit: String
   },
-  computed: {
-    recipeImageStyle() {
-      return {
-        "background-image": `url(${this.imageUrl})`
-      };
+  computed: {},
+  methods: {
+    getImgUrl(pic) {
+      return require("../assets/" + pic);
     }
-  },
-  methods: {}
+  }
 };
 </script>

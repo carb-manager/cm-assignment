@@ -1,7 +1,7 @@
 <template>
   <div class="favorite">
     <svg
-      v-if="isFavorited"
+      v-if="isFavorite"
       class="favorite-selected"
       width="23"
       height="20"
@@ -15,7 +15,7 @@
       />
     </svg>
     <svg
-      v-if="!isFavorited"
+      v-if="!isFavorite"
       class="favorite"
       width="23"
       height="20"
@@ -37,7 +37,7 @@
 export default {
   name: "Favorite",
   props: {
-    isFavorited: {
+    isFavorite: {
       type: Boolean,
       default: false
     }
