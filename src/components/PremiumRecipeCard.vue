@@ -206,6 +206,6 @@ export default {
 
 .card .body .details .nutrition {
   position: absolute;
-  margin-left: 200px;
+  margin-left: 198px;
 }
 </style>
