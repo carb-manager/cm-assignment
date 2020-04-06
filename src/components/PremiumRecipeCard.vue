@@ -167,7 +167,6 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 100%;
   font-size: 12px;
   flex-wrap: wrap;
   padding: 10px;
@@ -202,12 +201,11 @@ export default {
 }
 
 .card .body .details .durations {
-  width: 100px;
-  text-overflow: ellipsis;
+  margin-right: 10px;
 }
 
-.card .body .details .energy {
-  width: 113px;
-  text-overflow: ellipsis;
+.card .body .details .nutrition {
+  position: absolute;
+  margin-left: 200px;
 }
 </style>
