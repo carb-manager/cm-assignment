@@ -42,14 +42,14 @@ export const Default = () => ({
       default: text('Energy Unit', 'Calories'),
     },
     carbs: {
-      default: number('Carbs', 200),
+      default: number('Carbs', 20),
     },
     protein: {
       default: number('Protein', 16),
     },
     fats: {
       default: number('Fats', 6),
-    }
+    },
   },
   template: `<PremiumRecipeCard @click="action" 
     v-bind:title="title"     
