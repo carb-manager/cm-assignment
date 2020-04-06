@@ -6,6 +6,7 @@
       </span>
       <span class="star-half" v-if="starsCount % 1 != 0">
         <img src="../../assets/half-filled-star.svg" />
+        <img src="../../assets/empty-star.svg" />
       </span>
       <span class="star-grey" v-for="index in 5-Math.round(starsCount)" :key="'greystar'+index">
         <img src="../../assets/empty-star.svg" />
@@ -66,5 +67,10 @@ export default {
   font-weight: 500;
   font-size: 14px;
   line-height: 14px;
+}
+
+.ratings .star-half img:nth-child(2) {
+  margin-left: -13px;
+  opacity: 0.5;
 }
 </style>
