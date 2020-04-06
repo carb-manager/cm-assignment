@@ -44,7 +44,10 @@ export default {
 .nutrition .carbs,
 .nutrition .protein,
 .nutrition .fats {
-  width: 41px;
-  text-align: right;
+  margin-left: 8px;
+}
+
+.nutrition .dot {
+  margin-bottom: 1.5px;
 }
 </style>
