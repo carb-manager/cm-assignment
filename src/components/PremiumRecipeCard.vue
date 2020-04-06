@@ -59,7 +59,7 @@ export default {
     },
     isPremium: {
       type: Boolean,
-      default: false
+      default: true
     },
     rating: Number,
     ratingsCount: Number,
