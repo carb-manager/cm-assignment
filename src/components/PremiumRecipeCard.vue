@@ -3,10 +3,10 @@
     <div class="overlay"></div>
     <div class="header">
       <div class="food-picture">
-        <img v-bind:src="this.getImageUrl(pictureFileName)" />
+        <img v-bind:src="this.getImageUrl(pictureFilename)" />
       </div>
       <Favorite v-bind:isFavorite="isFavorite" />
-      <div class="badge">
+      <div class="badge" v-if="isPremium">
         <img src="../assets/trophy.svg" class="trophy-icon" />
         <span class="title">Premium Recipe</span>
       </div>
@@ -49,8 +49,10 @@ export default {
       type: String,
       default: "Recipe Title"
     },
-    rating: Number,
-    ratingsCount: Number,
+    pictureFilename: {
+      type: String,
+      default: ""
+    },
     isFavorite: {
       type: Boolean,
       default: false
@@ -59,16 +61,14 @@ export default {
       type: Boolean,
       default: false
     },
-    pictureFileName: {
-      type: String,
-      default: ""
-    },
-    carbs: Number,
-    protein: Number,
-    fats: Number,
+    rating: Number,
+    ratingsCount: Number,
     durationsInMinutes: Number,
     energyValue: Number,
-    energyUnit: String
+    energyUnit: String,
+    carbs: Number,
+    protein: Number,
+    fats: Number
   },
   computed: {},
   methods: {
@@ -78,7 +78,6 @@ export default {
   }
 };
 </script>
-
 
 <style scoped>
 .card {
