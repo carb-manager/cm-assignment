@@ -45,8 +45,7 @@ export default {
 <style scoped>
 .energy {
   display: flex;
-  margin-right: 90px;
-  font-family: Proxima Nova;
+  margin-right: 45px;
   font-size: 12px;
 }
 

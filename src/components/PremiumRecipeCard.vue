@@ -8,11 +8,11 @@
       <Favorite v-bind:isFavorite="isFavorite" />
       <div class="badge">
         <img v-bind:src="this.getImgUrl('trophy.svg')" class="trophy-icon" />
-        <span>Premium Recipe</span>
+        <span class="title">Premium Recipe</span>
       </div>
     </div>
     <div class="body">
-      <h3 class="title">{{ title }}</h3>
+      <div class="title">{{ title }}</div>
       <Ratings
         v-bind:rating="rating"
         v-bind:ratingsCount="ratingsCount"
@@ -142,7 +142,7 @@ export default {
 
 .card .header .badge {
   position: absolute;
-  top: 175px;
+  top: 185px;
   left: 10px;
   background: rgba(255, 255, 255, 0.2);
   color: white;
@@ -157,21 +157,26 @@ export default {
   color: #ffffff;
 }
 
+.card .header .badge .title {
+  font-weight: 600;
+  font-size: 12px;
+  font-family: Proxima Nova;
+}
+
 .card .body {
   display: flex;
   flex-direction: row;
   align-items: center;
   width: 100%;
-  margin-top: 4px;
   font-size: 12px;
   flex-wrap: wrap;
-  padding: 15px;
-  background: #ffffff;
+  padding: 10px;
+  background: #fff;
 }
 
 .card .body .break {
   flex-basis: 100%;
-  height: 0;
+  height: 2px;
 }
 
 .card .body .title {
@@ -184,10 +189,10 @@ export default {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
-  font-family: Proxima Nova;
   font-style: normal;
   font-weight: bold;
   color: #0c0c0a;
+  margin-bottom: 8px;
 }
 
 .card .body .details {

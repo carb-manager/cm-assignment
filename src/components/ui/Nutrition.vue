@@ -43,13 +43,11 @@ export default {
 <style scoped>
 .nutrition {
   display: flex;
-  font-family: Proxima Nova;
   font-size: 12px;
 }
 
-.durations .icon {
-  width: 18px;
-  height: 18px;
-  margin-top: -2px;
+.nutrition .carbs,
+.nutrition .protein {
+  margin-right: 12px;
 }
 </style>

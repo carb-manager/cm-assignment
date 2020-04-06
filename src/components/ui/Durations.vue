@@ -42,7 +42,6 @@ export default {
 }
 
 .durations .time {
-  font-family: Proxima Nova;
   font-size: 12px;
 }
 
