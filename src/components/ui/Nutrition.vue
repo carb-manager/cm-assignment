@@ -45,5 +45,6 @@ export default {
 .nutrition .protein,
 .nutrition .fats {
   width: 41px;
+  text-align: right;
 }
 </style>
