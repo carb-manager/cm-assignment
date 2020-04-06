@@ -1,7 +1,7 @@
 <template>
   <div class="energy">
     <img class="icon" v-bind:src="getImgUrl('energy.svg')" v-if="isShowedIcon" />
-    {{energyValue}} {{energyUnits}}
+    <span class="label">{{energyValue}} {{energyUnits}}</span>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ export default {
 <style scoped>
 .energy {
   display: flex;
-  margin-right: 45px;
+  margin-right: 54px;
   font-size: 12px;
 }
 
@@ -53,6 +53,6 @@ export default {
   width: 18px;
   height: 18px;
   margin-top: -2px;
-  margin-right: 8px;
+  margin-right: 6px;
 }
 </style>
