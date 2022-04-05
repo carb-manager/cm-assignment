@@ -3,7 +3,8 @@ module.exports = () => ({
     firstName: "Jon",
     lastName: "Doe",
     email: "jon.doe@carbmanager.com",
-    energyUnits: "calories" // "calories" or "kJ"
+    energyUnits: "calories", // "calories" or "kJ",
+    likedRecipes: ["2", "3"]
   },
   recipes: [
     {
