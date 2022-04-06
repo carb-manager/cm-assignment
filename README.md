@@ -24,7 +24,7 @@
 
 - The data is served by a local HTTP server listening on `http://127.0.0.1:3000`. There are 2 endpoints:
   - `http://127.0.0.1:3000/recipes` - returns recipes data. Recipes may contain energy information in `kcal` or in `kJ`. 1 `kcal` = 4.184 `kJ`.
-  - `http://127.0.0.1:3000/user` returns user settings. The object contains the `energyUnits` field which may be either `calories` or `kJ`. Use this field to determine user preferences for energy units display.
+  - `http://127.0.0.1:3000/user` returns user settings. The object contains the `energyUnits` field which may be either `calories` or `kJ`. Use this field to determine user preferences for energy units display. It also contains the `likedRecipes` field. Use ids stored there to determine the "liked" state of each recipe.
 - Data fixtures are defined in `./server/db.js`. Do not modify them.
 - The server is configured to respond with HTTP error 500 sometimes. Take it into account.
 - Use that data to render a list of premium recipe cards.
@@ -40,14 +40,8 @@
 
 ### Interactions
 
-- The whole card will be clickable. Make sure that the event is working properly.
-- Because the whole card is clickable, the "heart" icon in the top right won't be interactive. Instead, it should be empty or filled in depending on a certain prop value.
-
-### Tests
-
-There is a `PremiumRecipeCard.spec.js` file which you can use to write some tests. These tests are completely up to you. Try to come up with some useful test cases.
-
-**Hint:** The calorie -> kilojoules conversion will be a good test case to make sure the conversion is working properly.
+- The whole card will be clickable. Make sure that the event is working properly. We don't expect anything to happen on click. Logging a message to the console is enough.
+- Because the whole card is clickable, the "heart" icon in the top right won't be interactive. Instead, it should be empty or filled in depending on `user.likedRecipes`.
 
 ### Other Notes
 
@@ -82,10 +76,4 @@ yarn install
 
 ```
 yarn serve
-```
-
-### Run your unit tests
-
-```
-yarn test:unit
 ```
